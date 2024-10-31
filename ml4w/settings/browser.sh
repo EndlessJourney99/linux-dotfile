@@ -1,0 +1,1 @@
+google-chrome-stable --gtk-version=4 --ozone-platform-hint=auto --enable-features=UseOzonePlatform

@@ -1,0 +1,16 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+text/plain=org.gnome.TextEditor.desktop
+image/jpeg=qimgv.desktop
+image/png=qimgv.desktop
+image/svg+xml=google-chrome.desktop
+
+[Added Associations]
+text/plain=org.gnome.TextEditor.desktop;
+image/jpeg=qimgv.desktop;
+image/png=qimgv.desktop;
+image/svg+xml=qimgv.desktop;google-chrome.desktop;

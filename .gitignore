@@ -1,0 +1,15 @@
+**/Cache/*
+**/CachedData/*
+**/google-chrome/*
+**/cache/*
+**/MongoDB Compass/*
+*.udb
+*.udb-shm
+*.udb-wal
+**/miopen/*
+**/libreoffice/*
+**/go/*
+**/Code/*
+**/Code - OSS/*
+**/cpupower_gui/*
+**/github-copilot/*
