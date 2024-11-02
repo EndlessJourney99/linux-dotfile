@@ -100,7 +100,9 @@ return {
 
     -- `/` cmdline setup.
     cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline {
+        ["<CR>"] = cmp.mapping.confirm { select = true },
+      },
       sources = {
         { name = "buffer" },
       },
@@ -108,7 +110,11 @@ return {
 
     -- `:` cmdline setup.
     cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline {
+        ["<C-CR>"] = {
+          c = cmp.mapping.confirm { select = false },
+        },
+      },
       sources = cmp.config.sources({
         { name = "path" },
       }, {
@@ -136,8 +142,9 @@ return {
       mapping = cmp.mapping.preset.insert {
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-CR>"] = cmp.mapping.confirm { select = true },
+        ["<CR>"] = cmp.mapping.confirm { select = true },
         ["<C-\\>"] = cmp.mapping.complete(),
+        ["<ESC>"] = cmp.mapping.close(),
         ["<C-f>"] = cmp_action.luasnip_jump_forward(),
         ["<C-b>"] = cmp_action.luasnip_jump_backward(),
         ["<Tab>"] = cmp_action.luasnip_supertab(),

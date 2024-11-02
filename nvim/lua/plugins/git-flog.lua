@@ -27,7 +27,7 @@ return {
     {
       "<leader>gl",
       function()
-        require("gitgraph").draw({}, { all = true, max_count = 5000 })
+        require("gitgraph").draw({}, { all = true, max_count = 500 })
       end,
       desc = "GitGraph - Draw",
     },
