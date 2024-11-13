@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "coc-spell-checker": ">=1.3.2"
+  }
+}

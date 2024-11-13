@@ -1,7 +1,6 @@
 # -----------------------------------------------------
 # ALIASES
 # -----------------------------------------------------
-
 # -----------------------------------------------------
 # General
 # -----------------------------------------------------
@@ -9,9 +8,6 @@ alias c='clear'
 alias nf='fastfetch'
 alias pf='fastfetch'
 alias ff='fastfetch'
-alias ls='eza -a --icons'
-alias ll='eza -al --icons'
-alias lt='eza -a --tree --level=1 --icons'
 alias shutdown='systemctl poweroff'
 alias v='$EDITOR'
 alias vim='$EDITOR'
@@ -72,3 +68,7 @@ alias setkb='setxkbmap de;echo "Keyboard set back to de."'
 alias dlvr-acc='rcat ~/data/work/Account.txt'
 alias dlvr-k8s-dev='dlvr-acc | grep k8s-dev-token | cut -c 16- | wl-copy'
 alias dlvr-k8s-test='dlvr-acc | grep k8s-test-token | cut -c 17- | wl-copy'
+
+alias ls='eza -a --tree --level=2 --icons'
+alias ll='eza -al --tree --level=1  --icons'
+alias lt='eza -a --tree --level=2 --icons'

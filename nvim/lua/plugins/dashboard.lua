@@ -42,7 +42,7 @@ return {
             --   icon = " ",
             --   key = "c"
             -- },
-            { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+            { action = 'execute "lua require(\\"persistence\\").load()" | set showtabline=2', desc = " Restore Session", icon = " ", key = "s" },
             -- { action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
             { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
             { action = "qa", desc = " Quit", icon = " ", key = "q" },

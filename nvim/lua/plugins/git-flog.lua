@@ -1,6 +1,8 @@
 return {
   "isakbm/gitgraph.nvim",
   dependencies = { "sindrets/diffview.nvim" },
+  lazy = true,
+  event = "VeryLazy",
   opts = {
     symbols = {
       merge_commit = "M",
