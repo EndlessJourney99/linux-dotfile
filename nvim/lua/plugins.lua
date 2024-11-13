@@ -150,38 +150,6 @@ return {
     config = true,
   },
   { "mfussenegger/nvim-jdtls" },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("oil").setup {
-        default_file_explorer = true,
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = true,
-        view_options = {
-          show_hidden = true,
-          natural_order = true,
-          is_always_hidden = function(name, _)
-            return name == ".." or name == ".git"
-          end,
-        },
-        float = {
-          padding = 2,
-          max_width = 90,
-          max_height = 0,
-        },
-        win_options = {
-          wrap = true,
-          winblend = 0,
-        },
-        keymaps = {
-          ["<C-c>"] = false,
-          ["q"] = "actions.close",
-        },
-      }
-    end,
-  },
   { "preservim/vim-pencil" },
   {
     "folke/zen-mode.nvim",
@@ -385,98 +353,6 @@ return {
     event = "VeryLazy",
   },
   { "nvim-treesitter/nvim-treesitter-textobjects" },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      local configs = require "nvim-treesitter.configs"
-
-      configs.setup {
-        ensure_installed = {
-          "javascript",
-          "typescript",
-          "c",
-          "lua",
-          "vim",
-          "vimdoc",
-          "query",
-          "elixir",
-          "erlang",
-          "heex",
-          "eex",
-          "kotlin",
-          "jq",
-          "dockerfile",
-          "json",
-          "html",
-          "terraform",
-          "go",
-          "tsx",
-          "bash",
-          "ruby",
-          "markdown",
-          "java",
-          "astro",
-        },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<C-space>",
-            node_incremental = "<C-space>",
-            scope_incremental = "<C-CR>",
-            node_decremental = "<bs>",
-          },
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["aa"] = "@parameter.outer",
-              ["ia"] = "@parameter.inner",
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              ["]m"] = "@function.outer",
-              ["]]"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-              ["]["] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-              ["[["] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-              ["[]"] = "@class.outer",
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>p"] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>ps"] = "@parameter.inner",
-            },
-          },
-        },
-      }
-    end,
-  },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "catppuccin/nvim",
@@ -618,42 +494,6 @@ return {
       },
       { "jbyuki/one-small-step-for-vimkind", module = "osv" },
     },
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup {
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch", "diff", "diagnostics" },
-          lualine_c = { { "filename", path = 1 } },
-          lualine_x = {
-            { "fileformat", "filetype" },
-            {
-              require("noice").api.statusline.mode.get,
-              cond = require("noice").api.statusline.mode.has,
-              color = { fg = "#ff9e64" },
-            },
-          },
-          lualine_y = { "progress" },
-          lualine_z = { "location" },
-        },
-        extensions = { "fugitive", "quickfix", "fzf", "lazy", "mason", "nvim-dap-ui", "oil", "trouble" },
-        options = {
-          theme = "ayu_dark",
-          icon_enabled = true
-        }
-      }
-    end,
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {}
-    end,
   },
   {
     "junegunn/fzf",

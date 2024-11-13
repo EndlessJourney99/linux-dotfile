@@ -58,7 +58,7 @@ return {
       vim.keymap.set("n", "<leader>vrr", function()
         vim.lsp.buf.references()
       end, vim.tbl_deep_extend("force", opts, { desc = "LSP References" }))
-      vim.keymap.set("n", "<leader>vrn", function()
+      vim.keymap.set("n", "<F2>", function()
         vim.lsp.buf.rename()
       end, vim.tbl_deep_extend("force", opts, { desc = "LSP Rename" }))
       vim.keymap.set("n", "<C-[>", function()
@@ -102,6 +102,9 @@ return {
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline {
         ["<CR>"] = cmp.mapping.confirm { select = true },
+        ["<C-CR>"] = {
+          c = cmp.mapping.confirm { select = false },
+        },
       },
       sources = {
         { name = "buffer" },
