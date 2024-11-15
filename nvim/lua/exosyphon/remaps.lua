@@ -34,10 +34,10 @@ vim.keymap.set("v", "<leader>d", "\"_d", { desc = "Delete into \" register" })
 vim.keymap.set("n", "Q", "<nop>")
 
 -- close buffer
-vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Close Buffer" })
-
--- Close buffer without closing split
-vim.keymap.set("n", "<leader>w", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
+-- vim.keymap.set("n", "<leader>w", "<cmd>bd<CR>", { desc = "Close Buffer" })
+--
+-- -- Close buffer without closing split
+-- vim.keymap.set("n", "<leader>q", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 
 -- Navigate between quickfix items
 vim.keymap.set("n", "<leader>h", "<cmd>cnext<CR>zz", { desc = "Forward qfixlist" })
@@ -47,15 +47,9 @@ vim.keymap.set("n", "<leader>;", "<cmd>cprev<CR>zz", { desc = "Backward qfixlist
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Forward location list" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location list" })
 
--- Replace word under cursor across entire buffer
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word under cursor" })
-
--- Make current file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
-
--- Jump to plugin management file
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/plugins.lua<CR>", { desc = "Jump to configuration file" })
+-- -- Replace word under cursor across entire buffer
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],rema
+--   { desc = "Replace word under cursor" })
 
 -- Run Tests
 vim.keymap.set("n", "<F6>", "<cmd>lua require('neotest').run.run()<CR>", { desc = "Run Test" })
@@ -69,6 +63,7 @@ vim.keymap.set("n", "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR
 vim.keymap.set("n", "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<CR>", { desc = "Toggle Test Summary" })
 
 -- Debug Tests
+vim.keymap.set("n", "<F4>", "<cmd>lua require('dap-go').debug_test()<CR>", { desc = "Start Debugging Current Test" })
 vim.keymap.set("n", "<F5>", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
 vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", { desc = "Start Debugging" })
 vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<CR>", { desc = "Step Over" })

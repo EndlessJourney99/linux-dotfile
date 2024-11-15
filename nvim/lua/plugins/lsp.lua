@@ -11,7 +11,6 @@ return {
       end,
     },
     { "williamboman/mason-lspconfig.nvim" }, -- Optional
-
     -- Autocompletion
     { "hrsh7th/nvim-cmp" }, -- Required
     { "hrsh7th/cmp-nvim-lsp" }, -- Required
