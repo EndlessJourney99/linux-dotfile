@@ -25,6 +25,7 @@ map({ "v", "n" }, "<M-j>", "ddp", { noremap = true, silent = true })
 map("n", "<leader>Q", "<cmd>q!<cr>", { noremap = true, silent = true })
 map("n", "<leader>wq", "<cmd>wq<cr>", { noremap = true, silent = true })
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
+map("i", "<C-DEL>", "<ESC><right>cw", { noremap = true, silent = true })
 
 
 require "custom-func.quote-selector"

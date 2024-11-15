@@ -471,12 +471,6 @@ return {
         end,
       },
       {
-        "leoluz/nvim-dap-go",
-        config = function()
-          require("dap-go").setup()
-        end,
-      },
-      {
         "theHamsta/nvim-dap-virtual-text",
         opts = {},
       },
