@@ -69,6 +69,6 @@ alias dlvr-acc='rcat ~/data/work/Account.txt'
 alias dlvr-k8s-dev='dlvr-acc | grep k8s-dev-token | cut -c 16- | wl-copy'
 alias dlvr-k8s-test='dlvr-acc | grep k8s-test-token | cut -c 17- | wl-copy'
 
-alias ls='eza -a --tree --level=2 --icons'
+alias ls='eza -a --tree --level=1 --icons'
 alias ll='eza -al --tree --level=1  --icons'
 alias lt='eza -a --tree --level=2 --icons'

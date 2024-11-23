@@ -40,6 +40,10 @@ vim.schedule(function()
   vim.cmd "hi IlluminatedWordText guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordRead guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordWrite guibg=none gui=underline"
+  vim.cmd "set linebreak"
+  vim.cmd "set hlsearch"
+  -- vim.lsp.set_log_level "off"
+
   require("nvim-highlight-colors").setup {
     enable_named_colors = false,
   }
@@ -48,3 +52,9 @@ vim.schedule(function()
   require "exosyphon.options"
   require("dapui").setup()
 end)
+
+vim.filetype.add({
+  extension = {
+    json = "jsonc",
+  }
+})

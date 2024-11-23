@@ -15,6 +15,8 @@ return {
         vsplit = "",
         ptogglemode = "z,",
         stoggleup = "",
+        openc = "<CR>",
+        open = "",
       },
       filter = {
         fzf = {
