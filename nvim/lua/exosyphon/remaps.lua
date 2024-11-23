@@ -98,7 +98,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end, { desc = "Source current file" })
 
 -- Dismiss Noice Message
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+vim.keymap.set("n", "<S-Esc>", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
 
 -- Open Zoxide telescope extension
 vim.keymap.set("n", "<leader>Z", "<cmd>Zi<CR>", { desc = "Open Zoxide" })

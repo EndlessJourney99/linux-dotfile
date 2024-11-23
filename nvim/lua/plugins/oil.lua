@@ -12,6 +12,7 @@ return {
       },
       keymaps = {
         ["<ESC>"] = "<cmd>lua require('oil').close()<cr>",
+        ["<Tab>"] = ""
       },
     }
 

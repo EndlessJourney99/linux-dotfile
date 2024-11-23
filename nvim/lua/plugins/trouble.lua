@@ -15,6 +15,10 @@ return {
         zindex = 200,
         scratch = true,
       },
+      keys = {
+        ["<esc>"] = "close",
+        ["<cr>"] =  "jump_close"
+      }
     }
 
     vim.keymap.del("n", "<leader>x")

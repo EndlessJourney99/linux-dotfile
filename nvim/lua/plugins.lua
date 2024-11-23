@@ -14,8 +14,8 @@ return {
     opts = {
       inlay_hints = {
         enabled = true,
-      }
-    }
+      },
+    },
   },
   {
     "kawre/neotab.nvim",
@@ -172,7 +172,6 @@ return {
       end,
     },
   },
-  
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -184,6 +183,14 @@ return {
         },
         {
           filter = { event = "msg_show", find = "written" },
+          opts = { skip = true },
+        },
+        {
+          filter = { event = "msg_show", find = "roslyn" },
+          opts = { skip = true },
+        },
+        {
+          filter = { event = "roslyn.nvim" },
           opts = { skip = true },
         },
       },
@@ -241,47 +248,6 @@ return {
       vim.keymap.set("n", "<leader>ll", function()
         lint.try_lint()
       end, { desc = "Trigger linting for current file" })
-    end,
-  },
-  {
-    "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local conform = require "conform"
-
-      conform.setup {
-        formatters_by_ft = {
-          lua = { "stylua" },
-          svelte = { { "prettierd", "prettier", stop_after_first = true } },
-          astro = { { "prettierd", "prettier", stop_after_first = true } },
-          javascript = { { "prettierd", "prettier", stop_after_first = true } },
-          typescript = { { "prettierd", "prettier", stop_after_first = true } },
-          javascriptreact = { { "prettierd", "prettier", stop_after_first = true } },
-          typescriptreact = { { "prettierd", "prettier", stop_after_first = true } },
-          json = { { "prettierd", "prettier", stop_after_first = true } },
-          graphql = { { "prettierd", "prettier", stop_after_first = true } },
-          java = { "google-java-format" },
-          kotlin = { "ktlint" },
-          markdown = { { "prettierd", "prettier", stop_after_first = true } },
-          bash = { "beautysh" },
-          proto = { "buf" },
-          rust = { "rustfmt" },
-          yaml = { "yamlfix" },
-          toml = { "taplo" },
-          css = { { "prettierd", "prettier", stop_after_first = true } },
-          scss = { { "prettierd", "prettier", stop_after_first = true } },
-          sh = { "shellcheck" },
-          go = { "gofmt" },
-        },
-      }
-
-      vim.keymap.set({ "n", "v" }, "<leader>l", function()
-        conform.format {
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 1000,
-        }
-      end, { desc = "Format file or range (in visual mode)" })
     end,
   },
   {
@@ -443,53 +409,6 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      {
-        "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio",
-        config = function(_, opts)
-          local dap = require "dap"
-          local dapui = require "dapui"
-          dap.set_log_level "INFO"
-          dapui.setup(opts)
-          dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open {}
-          end
-          dap.listeners.before.event_terminated["dapui_config"] = function()
-            dapui.close {}
-          end
-          dap.listeners.before.event_exited["dapui_config"] = function()
-            dapui.close {}
-          end
-        end,
-      },
-      {
-        "suketa/nvim-dap-ruby",
-        config = function()
-          require("dap-ruby").setup()
-        end,
-      },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = "mason.nvim",
-        cmd = { "DapInstall", "DapUninstall" },
-        opts = {
-          automatic_installation = true,
-          handlers = {},
-          ensure_installed = {
-            "delve",
-          },
-        },
-      },
-      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-    },
-  },
-  {
     "junegunn/fzf",
     build = ":call fzf#install()",
   },
@@ -517,46 +436,6 @@ return {
   },
   "mg979/vim-visual-multi",
   "tpope/vim-rails",
-  {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-    },
-    config = function()
-      local mason = require "mason"
-      local mason_tool_installer = require "mason-tool-installer"
-
-      -- enable mason and configure icons
-      mason.setup {
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
-      }
-
-      mason_tool_installer.setup {
-        ensure_installed = {
-          "prettier",
-          "prettierd",
-          "ktlint",
-          "eslint_d",
-          "google-java-format",
-          "beautysh",
-          "buf",
-          "rustfmt",
-          "yamlfix",
-          "taplo",
-          "shellcheck",
-          "gopls",
-          "delve",
-          "astro-language-server",
-        },
-      }
-    end,
-  },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",

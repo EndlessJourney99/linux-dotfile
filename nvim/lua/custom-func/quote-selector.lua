@@ -75,7 +75,7 @@ local quote_change_inner = function()
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote })
     vim.cmd "normal v"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 2 })
-    vim.cmd "normal c"
+    vim.cmd "normal \"_c"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", vim.fn.col "." })
     vim.api.nvim_command("startinsert")
   end
@@ -90,7 +90,20 @@ local quote_delete_inner = function()
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote })
     vim.cmd "normal vi"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 2 })
-    vim.cmd "normal d"
+    vim.cmd "normal \"_d"
+  end
+end
+
+
+local quote_cut_inner = function()
+  local left_quote, right_quote = quote_selector()
+
+  -- If we found both quotes, delete the text inside them
+  if left_quote and right_quote then
+    vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote })
+    vim.cmd "normal vi"
+    vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 2 })
+    vim.cmd "normal x"
   end
 end
 
@@ -127,7 +140,7 @@ local quote_change_arround = function()
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote - 1 })
     vim.cmd "normal vi"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 1 })
-    vim.cmd "normal c"
+    vim.cmd "normal \"_c"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", vim.fn.col "." })
     vim.api.nvim_command("startinsert")
   end
@@ -141,7 +154,20 @@ local quote_delete_arround = function()
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote - 1 })
     vim.cmd "normal vi"
     vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 1 })
-    vim.cmd "normal d"
+    vim.cmd "normal \"_d"
+  end
+end
+
+
+local quote_cut_arround = function()
+  local left_quote, right_quote = quote_selector()
+
+  -- If we found both quotes, delete the text inside them
+  if left_quote and right_quote then
+    vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", left_quote - 1 })
+    vim.cmd "normal vi"
+    vim.api.nvim_win_set_cursor(0, { vim.fn.line ".", right_quote - 1 })
+    vim.cmd "normal x"
   end
 end
 -- keybinding
@@ -149,8 +175,10 @@ vim.keymap.set("n", "viq", "", { noremap = true, callback = visual_select_inner 
 vim.keymap.set("n", "ciq", "", { noremap = true, callback = quote_change_inner })
 vim.keymap.set("n", "diq", "", { noremap = true, callback = quote_delete_inner })
 vim.keymap.set("n", "yiq", "", { noremap = true, callback = yank_inner_quote })
+vim.keymap.set("n", "xiq", "", { noremap = true, callback = quote_cut_inner })
 
 vim.keymap.set("n", "vaq", "", { noremap = true, callback = visual_select_arround })
 vim.keymap.set("n", "caq", "", { noremap = true, callback = quote_change_arround })
 vim.keymap.set("n", "daq", "", { noremap = true, callback = quote_delete_arround })
 vim.keymap.set("n", "yaq", "", { noremap = true, callback = yank_arround_quote })
+vim.keymap.set("n", "xaq", "", { noremap = true, callback = quote_cut_arround })
