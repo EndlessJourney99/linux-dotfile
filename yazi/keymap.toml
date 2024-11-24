@@ -1,0 +1,5 @@
+[manager]
+append_keymap = [
+  { on = "<C-j>", run = "arrow 5" },
+  { on = "<C-k>", run = "arrow -5" },
+]

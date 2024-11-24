@@ -1,0 +1,4 @@
+color = "black"
+
+[filetype]
+rules = [{ mime = "image/*", fg = "yellow" }]
