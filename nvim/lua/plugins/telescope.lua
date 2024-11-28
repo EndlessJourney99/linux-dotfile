@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "joshmedeski/telescope-smart-goto.nvim",
+    "1riz/telescope-macros.nvim",
     {
       "isak102/telescope-git-file-history.nvim",
       dependencies = {
@@ -46,6 +47,7 @@ return {
         layout_config = { width = 0.7 },
       })
     end, { desc = "[/] Fuzzily search in current buffer" })
+    vim.keymap.set("n", "<space>o", "<cmd>Telescope macros<cr>")
 
     vim.keymap.set("n", "<leader>gh", function()
       git_file_history.git_file_history()
@@ -60,11 +62,8 @@ return {
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
     table.insert(vimgrep_arguments, "--ignore-case")
-    -- I want to search in hidden/dot files.
     table.insert(vimgrep_arguments, "--hidden")
-    -- I don't want to search in the `.git` directory.
     table.insert(vimgrep_arguments, "--glob")
-    -- table.insert(vimgrep_arguments, "--ignore-case")
     table.insert(vimgrep_arguments, "!**/.git/*")
 
     local actions = require "telescope.actions"
@@ -86,6 +85,7 @@ return {
     telescope.setup {
       defaults = {
         -- `hidden = true` is not supported in text grep commands.
+        fuzzy_threshold = 0.9, -- Default: 0.5
         vimgrep_arguments = vimgrep_arguments,
         path_display = { "truncate" },
         mappings = {
@@ -105,7 +105,7 @@ return {
       pickers = {
         find_files = {
           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          find_command = { "rg", "--files", "--no-ignore-vcs", "--hidden", "--glob", "!**/.git/*" },
         },
       },
       extensions = {
@@ -142,8 +142,6 @@ return {
       },
     }
 
-    require("telescope").load_extension "neoclip"
-
     require("telescope").load_extension "fzf"
 
     require("telescope").load_extension "ui-select"
@@ -159,6 +157,8 @@ return {
     require("telescope").load_extension "noice"
 
     require("telescope").load_extension "git_file_history"
+
+    require("telescope").load_extension "macros"
 
     vim.g.zoxide_use_select = true
   end,

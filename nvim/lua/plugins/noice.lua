@@ -40,6 +40,14 @@ return {
         filter = { event = "notify", find = "E315" },
         opts = { skip = true },
       },
+      {
+        filter = { event = "notify", find = "E5108" },
+        opts = { skip = true },
+      },
+      {
+        filter = { event = "msg_show", find = "E5108" },
+        opts = { skip = true },
+      },
     },
     presets = {
       lsp_doc_border = true,
