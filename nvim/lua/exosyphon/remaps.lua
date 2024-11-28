@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location
 --   { desc = "Replace word under cursor" })
 
 -- Run Tests
-vim.keymap.set("n", "<F6>", "<cmd>lua require('neotest').run.run()<CR>", { desc = "Run Test" })
+vim.keymap.set("n", "<leader>tc", "<cmd>lua require('neotest').run.run()<CR>", { desc = "Run Current Nearest Test" })
 vim.keymap.set("n", "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",
   { desc = "Run Test File" })
 vim.keymap.set("n", "<leader>td", "<cmd>lua require('neotest').run.run(vim.fn.getcwd())<CR>",
@@ -112,17 +112,13 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Ver
 -- -- Visual --
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("n", "<", "v<gv<Esc>")
 vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("n", ">", "v>gv<Esc>")
 
 vim.keymap.set({"n", "o", "x"}, "<s-h>", "^", { desc = "Jump to beginning of line" })
 vim.keymap.set({"n", "o", "x"}, "<s-l>", "g_", { desc = "Jump to end of line" })
 
--- Move block
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
-
--- Search for highlighted text in buffer
-vim.keymap.set("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text" })
 
 -- Exit terminal mode shortcut
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")

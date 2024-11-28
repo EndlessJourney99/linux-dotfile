@@ -1,11 +1,26 @@
 return {
-  "github/copilot.vim",
-  config = function()
-    vim.keymap.set("i", "<C-Tab>", 'copilot#Accept("\\<CR>")', {
-      expr = true,
-      replace_keycodes = false,
-    })
-    vim.keymap.set("i", "<C-S-Tab>", "<Plug>(copilot-accept-word)", { noremap = true, silent = true })
-    vim.g.copilot_no_tab_map = false
-  end,
+  {
+    "github/copilot.vim",
+    config = function()
+      vim.keymap.set("i", "<C-Tab>", 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = false,
+      })
+      vim.keymap.set("i", "<C-S-Tab>", "<Plug>(copilot-accept-word)", { noremap = true, silent = true })
+      vim.g.copilot_no_tab_map = false
+    end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      -- See Configuration section for options
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
 }
