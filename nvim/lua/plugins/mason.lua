@@ -27,7 +27,6 @@ return {
         "prettier",
         "prettierd",
         "ktlint",
-        "eslint_d",
         "google-java-format",
         "beautysh",
         "buf",
