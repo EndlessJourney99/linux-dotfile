@@ -15,13 +15,6 @@ local lazy_config = require "configs.lazy"
 
 -- load plugins
 require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
-
   { import = "plugins" },
 }, lazy_config)
 
@@ -31,7 +24,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 -- custom configuration
 require "options"
-require "nvchad.autocmds"
+require "autocmds"
 require "configs.nvim-tree-config"
 
 vim.schedule(function()
@@ -52,8 +45,8 @@ vim.schedule(function()
   require("dapui").setup()
 end)
 
-vim.filetype.add({
+vim.filetype.add {
   extension = {
     json = "jsonc",
-  }
-})
+  },
+}

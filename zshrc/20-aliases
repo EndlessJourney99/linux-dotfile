@@ -72,3 +72,5 @@ alias dlvr-k8s-test='dlvr-acc | grep k8s-test-token | cut -c 17- | wl-copy'
 alias ls='eza -a --tree --level=1 --icons'
 alias ll='eza -al --tree --level=1  --icons'
 alias lt='eza -a --tree --level=2 --icons'
+
+alias pac=' {(comm -23 <(yay -Qqe | sort) <({(pactree -u -d 1 base)&&(yay -Qqg base-devel);} | sort))&&(comm -23 <(yay -Qqtt | sort) <(yay -Qqt | sort));} | sort | uniq | fzf --multi --preview "yay -Si {1}" --preview-window=right:70%:wrap'

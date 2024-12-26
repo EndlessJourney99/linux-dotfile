@@ -6,6 +6,13 @@ return {
 
     conform.setup {
       notify_on_error = true,
+      formatters = {
+        custom_sql_formatter = {
+          command = "sql-formatter-cli",
+          args = { "." },
+          stdin = true,
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         svelte = { "prettierd", "prettier", stop_after_first = true },
@@ -29,6 +36,7 @@ return {
         sh = { "shellcheck" },
         go = { "gofmt" },
         zsh = { "shfmt", "shellcheck" },
+        sql = { "custom_sql_formatter" },
       },
     }
   end,

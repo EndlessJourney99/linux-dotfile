@@ -3,6 +3,24 @@ return {
   dependencies = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
+  opts = function()
+    dofile(vim.g.base46_cache .. "mason")
+
+    return {
+      PATH = "skip",
+
+      ui = {
+        icons = {
+          package_pending = " ",
+          package_installed = " ",
+          package_uninstalled = " ",
+        },
+      },
+
+      max_concurrent_installers = 10,
+    }
+  end,
+
   config = function()
     local mason = require "mason"
     local mason_tool_installer = require "mason-tool-installer"
@@ -17,8 +35,8 @@ return {
         },
       },
       registries = {
-        'github:mason-org/mason-registry',
-        'github:syndim/mason-registry',
+        "github:mason-org/mason-registry",
+        "github:syndim/mason-registry",
       },
     }
 
