@@ -10,12 +10,19 @@
   <setting name="toolbox-shown" type="System.Boolean">True</setting>
   <setting name="pixel-grid-shown" type="System.Boolean">False</setting>
   <setting name="last-dialog-directory" type="System.String">file:///home/endless_journey/Pictures</setting>
-  <setting name="last-selected-tool" type="System.String">MoveSelectedTool</setting>
-  <setting name="primary-color" type="System.String">FF000000</setting>
+  <setting name="last-selected-tool" type="System.String">PanTool</setting>
+  <setting name="primary-color" type="System.String">FFFF0000</setting>
   <setting name="secondary-color" type="System.String">FFFFFFFF</setting>
-  <setting name="recently-used-colors" type="System.String">FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5</setting>
+  <setting name="recently-used-colors" type="System.String">FFFF0000,FF000000,FFFF7FB6,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5</setting>
   <setting name="paintbrushtool-antialias" type="System.Int32">0</setting>
   <setting name="paintbrushtool-brush-width" type="System.Int32">2</setting>
   <setting name="paint-brush-brush" type="System.Int32">0</setting>
   <setting name="color-picker-sample-size" type="System.Int32">0</setting>
+  <setting name="jpg-quality" type="System.Int32">100</setting>
+  <setting name="default-image-type" type="System.String">jpg</setting>
+  <setting name="rectangletool-antialias" type="System.Int32">0</setting>
+  <setting name="rectangletool-brush-width" type="System.Int32">7</setting>
+  <setting name="rectangletool-fill-style" type="System.Int32">0</setting>
+  <setting name="rectangletool-shape-type" type="System.Int32">1</setting>
+  <setting name="rectangletool-dash-pattern" type="System.String">-</setting>
 </settings>

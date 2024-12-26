@@ -52,4 +52,6 @@ local function smart_delete_buffer()
 end
 
 vim.keymap.set("n", "<leader>w", smart_delete_buffer, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>", smart_delete_buffer, { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>q", smart_delete_buffer, { noremap = true, silent = true })

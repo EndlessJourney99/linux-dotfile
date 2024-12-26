@@ -21,7 +21,6 @@ return {
       }
     }
 
-    vim.keymap.del("n", "<leader>x")
     vim.keymap.set("n", "<leader>x", "<cmd>Trouble diagnostics toggle focus=true<CR>", { desc = "Trouble" })
   end,
 }
