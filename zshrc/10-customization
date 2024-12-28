@@ -52,3 +52,4 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # Shipped Theme
 # eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"
+export FZF_DEFAULT_OPTS='--bind=ctrl-k:up,ctrl-j:down,ctrl-d:preview-down,ctrl-u:preview-up,ctrl-h:toggle-preview'

@@ -59,7 +59,6 @@ map(
   { desc = "telescope find all files" }
 )
 
-
 -- new terminals
 map("n", "<leader>h", function()
   require("nvchad.term").new { pos = "sp" }
@@ -113,6 +112,10 @@ map({ "i" }, "<C-CR>", "<ESC>o", { noremap = true, silent = true })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], { noremap = true, silent = false })
 map("n", "<C-/>", "*", { noremap = true, silent = true })
+-- map("n", "<M-/>", function()
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("*", true, false, true), "n", true)
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-S-/>", true, false, true), "n", true)
+-- end, { noremap = true, silent = true })
 map("n", "<C-S-/>", function()
   vim.cmd "let @/ = ''"
 end, { noremap = true, silent = true })
@@ -143,7 +146,6 @@ end, { desc = "terminal toggleable horizontal term" })
 map({ "n", "v", "o" }, "x", "d", { noremap = true, silent = true })
 map({ "n", "v", "o" }, "X", "D", { noremap = true, silent = true })
 map({ "n", "v", "o" }, "xx", "dd", { noremap = true, silent = true })
-
 
 map("v", "=", function()
   require("conform").format({ async = true, lsp_fallback = true }, function(err)
