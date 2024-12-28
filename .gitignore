@@ -17,4 +17,6 @@
 **/ibus/*
 **/node_modules/*
 **/coc-omnisharp-data/*
+**/coc/list_history.dat
 **/Postman/*
+**/VirtualBox/*
