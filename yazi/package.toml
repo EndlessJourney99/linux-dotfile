@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "yazi-rs/plugins:chmod", rev = "71c4fc2" }, { use = "ndtoan96/ouch", rev = "b869886" }]
+
+[flavor]
+deps = []
