@@ -6,7 +6,7 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { },
+        lualine_c = { require("NeoComposer.ui").status_recording },
         lualine_x = {
           { "fileformat", "filetype" },
           {

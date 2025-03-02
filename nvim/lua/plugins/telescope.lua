@@ -4,7 +4,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "joshmedeski/telescope-smart-goto.nvim",
-    "1riz/telescope-macros.nvim",
     {
       "isak102/telescope-git-file-history.nvim",
       dependencies = {
@@ -182,8 +181,6 @@ return {
     require("telescope").load_extension "noice"
 
     require("telescope").load_extension "git_file_history"
-
-    require("telescope").load_extension "macros"
 
     vim.g.zoxide_use_select = true
   end,

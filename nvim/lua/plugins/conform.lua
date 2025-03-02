@@ -23,8 +23,6 @@ return {
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         graphql = { "prettierd", "prettier", stop_after_first = true },
-        java = { "google-java-format" },
-        kotlin = { "ktlint" },
         markdown = { "prettierd", "prettier", stop_after_first = true },
         bash = { "beautysh" },
         proto = { "buf" },
@@ -37,6 +35,7 @@ return {
         go = { "gofmt" },
         zsh = { "shfmt", "shellcheck" },
         sql = { "custom_sql_formatter" },
+        cs = { "ast_grep" },
       },
     }
   end,

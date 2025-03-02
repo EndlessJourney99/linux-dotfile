@@ -10,3 +10,10 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+export FZF_DEFAULT_OPTS='--bind=ctrl-k:up,ctrl-j:down,ctrl-d:preview-down,ctrl-u:preview-up,ctrl-h:toggle-preview'
+export FZF_CTRL_T_OPTS="
+  --height 100%
+  --walker-skip .git,node_modules,target,obj,bin
+  --preview 'bat -n --color=always {}'
+  --bind 'enter:execute(nvim {})+abort'"

@@ -23,6 +23,23 @@ local function have_next_buffer()
   return #buffers > 1
 end
 
+local function jump_back_old_buffer_from_cursor()
+  local last_buffer = vim.fn.bufnr "#"
+  local current_buffer = vim.fn.bufnr "%"
+  local last_window = vim.fn.bufwinnr(last_buffer)
+  local current_window = vim.fn.bufwinnr(current_buffer)
+
+  if current_window ~= last_window then
+    vim.cmd "bp"
+    return
+  end
+  if last_buffer ~= current_buffer then
+    vim.cmd(last_window .. "wincmd w")
+  end
+
+  vim.cmd "buffer #"
+end
+
 local function is_nvim_tree_open()
   local view = require "nvim-tree.view"
   return view.is_visible()
@@ -44,8 +61,9 @@ local function smart_delete_buffer()
   local is_right = pos[2] >= total_width - vim.api.nvim_win_get_width(win_id)
   local is_not_vertical_split = (is_left or is_nvim_tree_open()) and is_right
 
-  if is_split() and is_top and have_next_buffer() and is_not_vertical_split then
-    vim.cmd "bp|bd #"
+  if is_top and have_next_buffer() and is_not_vertical_split then
+    jump_back_old_buffer_from_cursor()
+    vim.cmd "bd #"
   else
     vim.cmd "bd"
   end
