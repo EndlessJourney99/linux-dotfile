@@ -45,7 +45,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+    keys = { "<leader>", '"', "'", "`", "c", "v", "g" },
     cmd = "WhichKey",
     opts = function()
       dofile(vim.g.base46_cache .. "whichkey")
@@ -53,31 +53,15 @@ return {
     end,
   },
 
-  -- formatting!
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = { lua = { "stylua" } },
-    },
-  },
-
   -- git stuff
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "User FilePost",
-    opts = function()
-      return require "configs.gitsigns"
-    end,
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    config = function()
-      require("configs.lspconfig").defaults()
-    end,
-  },
-
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   event = "User FilePost",
+  --   config = function()
+  --     require("configs.lspconfig").defaults()
+  --   end,
+  -- },
+  --
   -- load luasnips + cmp related in insert mode only
   {
     "hrsh7th/nvim-cmp",
@@ -91,28 +75,27 @@ return {
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
           -- vscode format
-require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
-require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+          require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
+          require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
 
--- snipmate format
-require("luasnip.loaders.from_snipmate").load()
-require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
+          -- snipmate format
+          require("luasnip.loaders.from_snipmate").load()
+          require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
 
--- lua format
-require("luasnip.loaders.from_lua").load()
-require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
+          -- lua format
+          require("luasnip.loaders.from_lua").load()
+          require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
 
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    if
-      require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-      and not require("luasnip").session.jump_active
-    then
-      require("luasnip").unlink_current()
-    end
-  end,
-})
-
+          vim.api.nvim_create_autocmd("InsertLeave", {
+            callback = function()
+              if
+                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                and not require("luasnip").session.jump_active
+              then
+                require("luasnip").unlink_current()
+              end
+            end,
+          })
         end,
       },
 
@@ -197,85 +180,56 @@ vim.api.nvim_create_autocmd("InsertLeave", {
       }
     end,
   },
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { "magick" },
-    },
-  },
+  -- {
+  --   "vhyrro/luarocks.nvim",
+  --   priority = 1001, -- this plugin needs to run before anything else
+  --   opts = {
+  --     rocks = { "magick" },
+  --   },
+  -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {},
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
   },
   { "folke/neodev.nvim", opts = {} },
-  {
-    "3rd/image.nvim",
-    config = function()
-      require("image").setup {
-        backend = "kitty",
-        integrations = {
-          markdown = {
-            enabled = true,
-            clear_in_insert_mode = false,
-            download_remote_images = true,
-            only_render_image_at_cursor = true,
-            filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-            resolve_image_path = function(document_path, image_path, fallback)
-              return fallback(document_path, image_path)
-            end,
-          },
-          html = {
-            enabled = false,
-          },
-          css = {
-            enabled = false,
-          },
-        },
-        max_width = nil,
-        max_height = nil,
-        max_width_window_percentage = nil,
-        max_height_window_percentage = 50,
-        window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
-        window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
-        editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
-        tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
-        hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
-      }
-    end,
-  },
-  {
-    "chentoast/marks.nvim",
-    config = function()
-      require("marks").setup {
-        default_mappings = true,
-      }
-    end,
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   config = function()
+  --     require("image").setup {
+  --       backend = "kitty",
+  --       integrations = {
+  --         markdown = {
+  --           enabled = true,
+  --           clear_in_insert_mode = false,
+  --           download_remote_images = true,
+  --           only_render_image_at_cursor = true,
+  --           filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+  --           resolve_image_path = function(document_path, image_path, fallback)
+  --             return fallback(document_path, image_path)
+  --           end,
+  --         },
+  --         html = {
+  --           enabled = false,
+  --         },
+  --         css = {
+  --           enabled = false,
+  --         },
+  --       },
+  --       max_width = nil,
+  --       max_height = nil,
+  --       max_width_window_percentage = nil,
+  --       max_height_window_percentage = 50,
+  --       window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
+  --       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+  --       editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
+  --       tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
+  --       hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
+  --     }
+  --   end,
+  -- },
   { "brenoprata10/nvim-highlight-colors" },
   { "tpope/vim-projectionist" },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    cmd = { "Neotree" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require("neo-tree").setup {
-        close_if_last_window = true,
-        filesystem = {
-          follow_current_file = {
-            enabled = true,
-            leave_dirs_open = true,
-          },
-        },
-      }
-    end,
-  },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -288,7 +242,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     },
     config = true,
   },
-  { "mfussenegger/nvim-jdtls" },
   { "preservim/vim-pencil" },
   {
     "folke/zen-mode.nvim",
@@ -309,42 +262,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
         vim.o.foldcolumn = "1"
         vim.o.foldenable = true
       end,
-    },
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      routes = {
-        {
-          filter = { event = "notify", find = "No information available" },
-          opts = { skip = true },
-        },
-        {
-          filter = { event = "msg_show", find = "written" },
-          opts = { skip = true },
-        },
-        {
-          filter = { event = "msg_show", find = "roslyn" },
-          opts = { skip = true },
-        },
-        {
-          filter = { event = "roslyn.nvim" },
-          opts = { skip = true },
-        },
-      },
-      presets = {
-        lsp_doc_border = true,
-      },
-      lsp = {
-        signature = {
-          enabled = false,
-        },
-      },
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     },
   },
   {
@@ -428,27 +345,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     },
   },
   {
-    "pwntester/octo.nvim",
-    cmd = "Octo",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("octo").setup {
-        enable_builtin = true,
-        use_local_fs = true,
-      }
-      vim.cmd [[hi OctoEditable guibg=none]]
-      vim.treesitter.language.register("markdown", "octo")
-    end,
-    keys = {
-      { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
-      { "<leader>Op", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
-    },
-  },
-  {
     "windwp/nvim-ts-autotag",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function()
@@ -479,9 +375,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   },
   {
     "tpope/vim-fugitive",
-    config = function()
-      vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Open Fugitive Panel" })
-    end,
   },
   "tpope/vim-repeat",
   {
@@ -591,10 +484,37 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   { "nvim-telescope/telescope-live-grep-args.nvim" },
   {
     "aaronhallaert/advanced-git-search.nvim",
+    lazy = true,
+    event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "tpope/vim-fugitive",
       "tpope/vim-rhubarb",
     },
+  },
+  {
+    "lambdalisue/vim-suda",
+  },
+  {
+    "ecthelionvi/NeoComposer.nvim",
+    dependencies = {
+      "kkharji/sqlite.lua",
+    },
+    lazy = false,
+    config = function()
+      require("NeoComposer").setup {
+        keymaps = {
+          play_macro = "~",
+          yank_macro = "yq",
+          stop_macro = "cq",
+          toggle_record = "<F6>",
+          cycle_next = "<F7>",
+          cycle_prev = "<F8>",
+          toggle_macro_menu = "<m-q>",
+        },
+      }
+
+      vim.keymap.set("n", "q", "<nop>", { noremap = false })
+    end,
   },
 }

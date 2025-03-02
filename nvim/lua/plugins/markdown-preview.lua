@@ -1,5 +1,7 @@
 return {
   "iamcco/markdown-preview.nvim",
+  lazy = true,
+  event = "BufRead",
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   build = "cd app && npm install && git restore .",
   init = function()

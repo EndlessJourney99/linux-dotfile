@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
+  lazy = true,
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   build = ":TSUpdate",
   opts = function()
@@ -25,6 +26,7 @@ return {
 
     configs.setup {
       ensure_installed = {
+        "html",
         "javascript",
         "typescript",
         "c",
@@ -32,11 +34,6 @@ return {
         "vim",
         "vimdoc",
         "query",
-        "elixir",
-        "erlang",
-        "heex",
-        "eex",
-        "kotlin",
         "jq",
         "dockerfile",
         "json",
@@ -47,8 +44,6 @@ return {
         "bash",
         "ruby",
         "markdown",
-        "java",
-        "astro",
         "c_sharp",
       },
       sync_install = false,

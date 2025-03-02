@@ -59,5 +59,11 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 -- Custom config
 
 local o = vim.o
-o.cursorlineopt ='both' -- to enable cursorline!
+o.cursorlineopt = "both" -- to enable cursorline!
 vim.opt.relativenumber = false
+vim.cmd "set linebreak"
+vim.lsp.set_log_level "off"
+
+require("nvim-highlight-colors").setup {
+  enable_named_colors = false,
+}

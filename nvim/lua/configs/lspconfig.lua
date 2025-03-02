@@ -9,7 +9,6 @@ local on_attach = function(_, bufnr)
   map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
   map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
-  map("n", "<leader>sh", vim.lsp.buf.signature_help, opts "Show signature help")
   map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
   map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
 
@@ -86,7 +85,7 @@ defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "gopls" }
+local servers = {"ts_ls", "cssls", "gopls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -96,16 +95,3 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   root_dir = lspconfig.util.root_pattern "package.json",
---   single_file_support = false,
--- }
---
--- configuring single server, example: typescript
-lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}

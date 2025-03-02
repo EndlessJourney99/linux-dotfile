@@ -4,7 +4,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "joshmedeski/telescope-smart-goto.nvim",
-    "1riz/telescope-macros.nvim",
     {
       "isak102/telescope-git-file-history.nvim",
       dependencies = {
@@ -72,7 +71,6 @@ return {
         layout_config = { width = 0.7 },
       })
     end, { desc = "[/] Fuzzily search in current buffer" })
-    vim.keymap.set("n", "<space>o", "<cmd>Telescope macros<cr>")
 
     vim.keymap.set("n", "<leader>gh", function()
       git_file_history.git_file_history()
@@ -182,8 +180,6 @@ return {
     require("telescope").load_extension "noice"
 
     require("telescope").load_extension "git_file_history"
-
-    require("telescope").load_extension "macros"
 
     vim.g.zoxide_use_select = true
   end,

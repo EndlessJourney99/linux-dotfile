@@ -44,8 +44,6 @@ return {
       ensure_installed = {
         "prettier",
         "prettierd",
-        "ktlint",
-        "google-java-format",
         "beautysh",
         "buf",
         "rustfmt",
