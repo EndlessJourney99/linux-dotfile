@@ -8,7 +8,9 @@ x-scheme-handler/webcal=google-chrome.desktop
 text/x-log=code.desktop
 x-scheme-handler/postman=Postman.desktop
 text/plain=org.gnome.TextEditor.desktop
+image/png=qimgv.desktop
 
 [Added Associations]
 text/x-log=code.desktop;
 text/plain=org.gnome.TextEditor.desktop;
+image/png=qimgv.desktop;
