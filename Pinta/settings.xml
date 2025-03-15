@@ -10,10 +10,10 @@
   <setting name="toolbox-shown" type="System.Boolean">True</setting>
   <setting name="pixel-grid-shown" type="System.Boolean">False</setting>
   <setting name="last-dialog-directory" type="System.String">file:///home/endless_journey/Pictures</setting>
-  <setting name="last-selected-tool" type="System.String">PanTool</setting>
+  <setting name="last-selected-tool" type="System.String">LineCurveTool</setting>
   <setting name="primary-color" type="System.String">FFFF0000</setting>
   <setting name="secondary-color" type="System.String">FFFFFFFF</setting>
-  <setting name="recently-used-colors" type="System.String">FFFF0000,FF000000,FFFF7FB6,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5</setting>
+  <setting name="recently-used-colors" type="System.String">FFFFFFFF,FFFF0000,FF000000,FFFF7FB6,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5,FFE5E5E5</setting>
   <setting name="paintbrushtool-antialias" type="System.Int32">0</setting>
   <setting name="paintbrushtool-brush-width" type="System.Int32">2</setting>
   <setting name="paint-brush-brush" type="System.Int32">0</setting>
@@ -25,4 +25,14 @@
   <setting name="rectangletool-fill-style" type="System.Int32">0</setting>
   <setting name="rectangletool-shape-type" type="System.Int32">1</setting>
   <setting name="rectangletool-dash-pattern" type="System.String">-</setting>
+  <setting name="linecurvetool-antialias" type="System.Int32">0</setting>
+  <setting name="linecurvetool-brush-width" type="System.Int32">2</setting>
+  <setting name="linecurvetool-fill-style" type="System.Int32">0</setting>
+  <setting name="linecurvetool-shape-type" type="System.Int32">0</setting>
+  <setting name="linecurvetool-dash-pattern" type="System.String">-</setting>
+  <setting name="linecurvetool-arrow1" type="System.Boolean">False</setting>
+  <setting name="linecurvetool-arrow2" type="System.Boolean">False</setting>
+  <setting name="linecurvetool-arrow-size" type="System.Int32">10</setting>
+  <setting name="linecurvetool-arrow-angle" type="System.Int32">15</setting>
+  <setting name="linecurvetool-arrow-length" type="System.Int32">10</setting>
 </settings>

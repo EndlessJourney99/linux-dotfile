@@ -1,5 +1,5 @@
 # #!/bin/bash
-grimblast --notify copy area
+grimblast --notify edit area
 # #  ____                               _           _    
 # # / ___|  ___ _ __ ___  ___ _ __  ___| |__   ___ | |_  
 # # \___ \ / __| '__/ _ \/ _ \ '_ \/ __| '_ \ / _ \| __| 
