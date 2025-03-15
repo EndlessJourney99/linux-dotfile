@@ -59,18 +59,18 @@ return {
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find Symbols" })
     vim.keymap.set("n", "<leader>fi", "<cmd>AdvancedGitSearch<CR>", { desc = "AdvancedGitSearch" })
     vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find Old Files" })
-    vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Word under Cursor" })
+    -- vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Find Word under Cursor" })
     vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search Git Commits" })
     vim.keymap.set("n", "<leader>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-    vim.keymap.set("n", "<C-f>", function()
-      -- You can pass additional configuration to telescope to change theme, layout, etc.
-      require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
-        winblend = 10,
-        previewer = true,
-        layout_config = { width = 0.7 },
-      })
-    end, { desc = "[/] Fuzzily search in current buffer" })
+    -- vim.keymap.set("n", "<C-f>", function()
+    --   -- You can pass additional configuration to telescope to change theme, layout, etc.
+    --   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+    --     winblend = 10,
+    --     previewer = true,
+    --     layout_config = { width = 0.7 },
+    --   })
+    -- end, { desc = "[/] Fuzzily search in current buffer" })
     vim.keymap.set("n", "<space>o", "<cmd>Telescope macros<cr>")
 
     vim.keymap.set("n", "<leader>gh", function()
@@ -176,12 +176,10 @@ return {
 
     require("telescope").load_extension "live_grep_args"
 
-    require("telescope").load_extension "colors"
+    -- require("telescope").load_extension "colors"
 
     require("telescope").load_extension "noice"
 
     require("telescope").load_extension "git_file_history"
-
-    vim.g.zoxide_use_select = true
   end,
 }

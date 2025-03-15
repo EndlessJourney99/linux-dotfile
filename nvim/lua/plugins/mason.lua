@@ -47,7 +47,6 @@ return {
         "beautysh",
         "buf",
         "rustfmt",
-        "yamlfix",
         "taplo",
         "shellcheck",
         "gopls",

@@ -5,9 +5,8 @@ return {
     local b = null_ls.builtins
 
     local sources = {
-      -- b.formatting.goimports,
-      -- b.formatting.gofumpt,
-      -- b.diagnostics.golangci_lint,
+      b.formatting.gofumpt,
+      b.formatting.goimports,
     }
 
     null_ls.setup {

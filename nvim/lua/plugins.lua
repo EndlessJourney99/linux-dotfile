@@ -358,15 +358,12 @@ return {
   {
     "catppuccin/nvim",
   },
-  {
-    "ellisonleao/gruvbox.nvim",
-  },
-  {
-    "exosyphon/telescope-color-picker.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
-    end,
-  },
+  -- {
+  --   "exosyphon/telescope-color-picker.nvim",
+  --   config = function()
+  --     vim.keymap.set("n", "<leader>uC", "<cmd>Telescope colors<CR>", { desc = "Telescope Color Picker" })
+  --   end,
+  -- },
   {
     "mbbill/undotree",
     config = function()
@@ -379,6 +376,9 @@ return {
   "tpope/vim-repeat",
   {
     "numToStr/Comment.nvim",
+    opts = {
+      ignore = '^$'
+    },
     config = function()
       require("Comment").setup()
     end,
@@ -444,7 +444,6 @@ return {
     "junegunn/fzf",
     build = ":call fzf#install()",
   },
-  "nanotee/zoxide.vim",
   "nvim-telescope/telescope-ui-select.nvim",
   "debugloop/telescope-undo.nvim",
   {
@@ -473,7 +472,7 @@ return {
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 500
+      vim.o.timeoutlen = 50
     end,
     opts = {
       triggers = {

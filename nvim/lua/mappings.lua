@@ -1,38 +1,27 @@
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 -- nvchad
-map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
-map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
-map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 map("n", "<leader>fm", function()
+  vim.lsp.buf.format()
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
-
--- global lsp mappings
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- nvimtree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
-
 -- telescope
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+map("n", "<C-f>", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
@@ -40,37 +29,24 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find o
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
-map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
+-- map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 
 map("n", "<leader>th", function()
   require("nvchad.themes").open()
 end, { desc = "telescope nvchad themes" })
 
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
-map(
-  "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "telescope find all files" }
-)
+-- map(
+--   "n",
+--   "<leader>fa",
+--   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+--   { desc = "telescope find all files" }
+-- )
 
 -- new terminals
 map("n", "<leader>h", function()
   require("nvchad.term").new { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
 
-map("n", "<leader>v", function()
-  require("nvchad.term").new { pos = "vsp" }
-end, { desc = "terminal new vertical term" })
-
--- toggleable
-map({ "n", "t" }, "<A-v>", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
-end, { desc = "terminal toggleable vertical term" })
-
-map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<A-i>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
@@ -83,11 +59,6 @@ end, { desc = "terminal toggle floating term" })
 --   vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 -- end, { desc = "whichkey query lookup" })
 
--- remove unwanted map
-nomap("n", "<leader>v")
-nomap("n", "<C-c>")
-nomap("n", "<C-n>")
-nomap("n", "<M-h>")
 -- tmux
 map("n", "<M-h>", [[<cmd>lua require('tmux').move_left()<cr>]], { desc = "Go left tmux window" })
 map("n", "<M-S-j>", [[<cmd>lua require('tmux').move_down()<cr>]], { desc = "Go top tmux window" })
@@ -110,6 +81,7 @@ end, { noremap = true, silent = true })
 map("v", "/r", '"hy:%s@<C-r>h@@g<left><left>', { noremap = true, silent = false })
 map({ "n", "v" }, "<C-j>", "5j", { noremap = true, silent = true })
 map({ "n", "v" }, "<C-k>", "5k", { noremap = true, silent = true })
+map("n", "<C-A-n>", "<cmd>enew<CR>", { noremap = true, silent = true })
 
 -- Move code
 map({ "n" }, "<M-k>", "ddkkp", { noremap = true, silent = true })
@@ -167,15 +139,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Paste without overwriting register
 vim.keymap.set("v", "p", '"_dP')
-
--- Copy text to " register
-vim.keymap.set("n", "<leader>y", '"+y', { desc = 'Yank into " register' })
-vim.keymap.set("v", "<leader>y", '"+y', { desc = 'Yank into " register' })
-vim.keymap.set("n", "<leader>Y", '"+Y', { desc = 'Yank into " register' })
-
--- Delete text to " register
-vim.keymap.set("n", "<leader>d", '"_d', { desc = 'Delete into " register' })
-vim.keymap.set("v", "<leader>d", '"_d', { desc = 'Delete into " register' })
 
 -- Get out Q
 vim.keymap.set("n", "Q", "<nop>")
@@ -275,9 +238,6 @@ end, { desc = "Source current file" })
 
 -- Dismiss Noice Message
 vim.keymap.set("n", "<S-Esc>", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
-
--- Open Zoxide telescope extension
-vim.keymap.set("n", "<leader>Z", "<cmd>Zi<CR>", { desc = "Open Zoxide" })
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Horizontal Split Down" })

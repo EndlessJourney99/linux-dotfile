@@ -1,3 +1,6 @@
+python.runLinting
+python.sortImports
+pyright.organizeimports
 json.retryResolveSchema
 workspace.diagnosticRelated
 cSpell.addWordToUserDictionary
