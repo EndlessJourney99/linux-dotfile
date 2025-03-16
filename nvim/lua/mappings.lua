@@ -245,6 +245,9 @@ vim.keymap.set("n", "<C-S-Up>", ":resize -2<CR>", { desc = "Resize Horizontal Sp
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize Vertical Split Down" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Vertical Split Up" })
 
+-- Pick color
+vim.keymap.set("n", "<leader>pc", "<cmd>Huefy<CR>", { desc = "Pick Color" })
+
 -- -- Visual --
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv")

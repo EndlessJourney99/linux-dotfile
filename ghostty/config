@@ -1,0 +1,21 @@
+font-family = "JetBrains Mono"
+font-size = 9
+background-opacity=0.8
+alpha-blending=linear
+adjust-cell-height=-10%
+theme=catppuccin-mocha
+gtk-custom-css = tab-style.css
+gtk-wide-tabs = false
+gtk-tabs-location = bottom
+gtk-titlebar = false
+confirm-close-surface=false
+shell-integration-features=no-title
+
+# Key bindings
+keybind = ctrl+super+t=new_tab
+keybind = ctrl+shift+q=close_tab
+keybind = ctrl+super+l=next_tab
+keybind = ctrl+super+h=previous_tab
+keybind = ctrl+shift+r=reload_config
+keybind = ctrl+shift+t=unbind
+keybind = ctrl+e=text:yazi\n

@@ -15,7 +15,6 @@ return {
   },
 
   "nvzone/volt",
-  "nvzone/menu",
   { "nvzone/minty", cmd = { "Huefy", "Shades" } },
 
   {
@@ -230,49 +229,7 @@ return {
   -- },
   { "brenoprata10/nvim-highlight-colors" },
   { "tpope/vim-projectionist" },
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
-    },
-    config = true,
-  },
   { "preservim/vim-pencil" },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      on_open = function(_)
-        vim.opt.nu = false
-        vim.opt.relativenumber = false
-        require("noice").disable()
-        require("ufo").disable()
-        vim.o.foldcolumn = "0"
-        vim.o.foldenable = false
-      end,
-      on_close = function()
-        vim.opt.nu = true
-        vim.opt.relativenumber = true
-        require("noice").enable()
-        require("ufo").enable()
-        vim.o.foldcolumn = "1"
-        vim.o.foldenable = true
-      end,
-    },
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  },
   {
     "mfussenegger/nvim-lint",
     event = {
@@ -466,7 +423,6 @@ return {
     end,
   },
   "mg979/vim-visual-multi",
-  "tpope/vim-rails",
   {
     "folke/which-key.nvim",
     event = "VeryLazy",

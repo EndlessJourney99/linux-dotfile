@@ -78,3 +78,4 @@ alias pac=' {(comm -23 <(yay -Qqe | sort) <({(pactree -u -d 1 base)&&(yay -Qqg b
 alias reload-monitor='~/.config/zshrc/scripts/restart-monitor.sh'
 # SSH
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+[ "$TERM" = "xterm-ghostty" ] && alias ssh="export TERM=xterm-256color ; ssh"
