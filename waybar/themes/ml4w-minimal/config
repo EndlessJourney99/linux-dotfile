@@ -23,17 +23,6 @@
     "~/.config/waybar/modules.json"
   ],
 
-  // Updates Count
-  "custom/updates": {
-    "format": "   {}",
-    "escape": true,
-    "return-type": "json",
-    "exec": "~/.config/ml4w/scripts/updates.sh",
-    "restart-interval": 60,
-    "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
-    "on-click-right": "~/.config/ml4w/settings/software.sh"
-  },
-
   // Pulseaudio
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -66,7 +55,7 @@
   ],
 
   // Modules Center
-  "modules-center": ["hyprland/window", "custom/empty"],
+        //"hyprland/window",
 
   // Modules Right
   "modules-right": [
@@ -81,6 +70,7 @@
     "custom/exit",
     "clock",
     "tray",
-    "custom/ml4w-welcome"
+    //"custom/ml4w-welcome",
+    "custom/notification",
   ]
 }

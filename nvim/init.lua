@@ -40,7 +40,17 @@ vim.schedule(function()
     enable_named_colors = false,
   }
 
-  require("dapui").setup()
+  require("dapui").setup {
+    render = {
+      max_type_length = nil, -- don't truncate type names
+    },
+  }
+  vim.o.ttyfast = true
+  vim.o.lazyredraw = false
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    command = "redraw!",
+  })
 end)
 
 vim.filetype.add {

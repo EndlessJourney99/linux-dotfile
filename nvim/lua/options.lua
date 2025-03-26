@@ -6,6 +6,7 @@ local g = vim.g
 -------------------------------------- options ------------------------------------------
 o.laststatus = 3
 o.showmode = false
+o.foldcolumn="0"
 
 o.clipboard = "unnamedplus"
 o.cursorline = true
@@ -34,7 +35,7 @@ opt.shortmess:append "sI"
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
-o.timeoutlen = 100
+o.timeoutlen = 200
 o.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns

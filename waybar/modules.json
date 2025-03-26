@@ -167,6 +167,26 @@
     "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
     "on-click-right": "hyprlock"
   },
+  "custom/notification": {
+    "tooltip": false,
+    "format": " {icon}  ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
   // Keyboard State
   "keyboard-state": {
     "numlock": true,
@@ -263,10 +283,7 @@
   // Group Links
   "group/links": {
     "orientation": "horizontal",
-    "modules": [
-      //      "custom/chatgpt",
-      "custom/empty"
-    ]
+    "modules": ["custom/chatgpt", "custom/empty"]
   },
   // Group Settings
   "group/settings": {
@@ -289,7 +306,8 @@
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e nmtui",
+    "on-click": "kitty --class dotfiles-floating -e nmtui",
+    // "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e nmtui",
     "on-click-right": "~/.config/ml4w/settings/networkmanager.sh"
   },
   // Battery

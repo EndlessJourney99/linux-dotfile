@@ -6,6 +6,7 @@ return {
     require("gitsigns").setup {
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
+        gs.toggle_current_line_blame()
 
         local function map(mode, l, r, opts)
           opts = opts or {}
@@ -35,16 +36,16 @@ return {
         end, { expr = true })
 
         -- Actions
-        map("n", "<leader>hs", gs.stage_hunk, { desc = "GitSigns state hunk" })
-        map("n", "<leader>hr", gs.reset_hunk, { desc = "GitSigns reset hunk" })
-        map("v", "<leader>hs", function()
-          gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end, { desc = "GitSigns stage_hunk" })
-        map("v", "<leader>hr", function()
-          gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end, { desc = "GitSigns reset_hunk" })
-        map("n", "<leader>hS", gs.stage_buffer, { desc = "GitSigns stage_buffer" })
-        map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "GitSigns undo_stage_hunk" })
+        -- map("n", "<leader>hs", gs.stage_hunk, { desc = "GitSigns state hunk" })
+        -- map("n", "<leader>hr", gs.reset_hunk, { desc = "GitSigns reset hunk" })
+        -- map("v", "<leader>hs", function()
+        --   gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
+        -- end, { desc = "GitSigns stage_hunk" })
+        -- map("v", "<leader>hr", function()
+        --   gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+        -- end, { desc = "GitSigns reset_hunk" })
+        -- map("n", "<leader>hS", gs.stage_buffer, { desc = "GitSigns stage_buffer" })
+        -- map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "GitSigns undo_stage_hunk" })
         map("n", "<leader>hR", gs.reset_buffer, { desc = "GitSigns reset_buffer" })
         map("n", "<leader>hp", gs.preview_hunk, { desc = "GitSigns preview_hunk" })
         map("n", "<leader>hb", function()
