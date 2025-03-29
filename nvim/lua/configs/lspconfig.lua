@@ -85,7 +85,7 @@ defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = {"ts_ls", "cssls", "gopls" }
+local servers = {"ts_ls", "cssls", "gopls", "csharp_ls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

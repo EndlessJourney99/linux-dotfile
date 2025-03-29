@@ -21,7 +21,7 @@ return {
     { "hrsh7th/cmp-cmdline" },
     { "saadparwaiz1/cmp_luasnip" },
   },
-  config = function()
+  config = function(config)
     local lsp = require "lsp-zero"
 
     lsp.on_attach(function(client, bufnr)
@@ -61,6 +61,9 @@ return {
         vim.lsp.buf.hover()
       end, vim.tbl_deep_extend("force", opts, { desc = "LSP Hover" }))
     end)
+
+    require("lspconfig").csharp_ls.setup(config)
+    require("csharpls_extended").buf_read_cmd_bind()
 
     require("mason").setup {}
     require("mason-lspconfig").setup {

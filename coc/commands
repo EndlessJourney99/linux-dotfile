@@ -1,3 +1,4 @@
+document.toggleInlayHint
 python.runLinting
 python.sortImports
 pyright.organizeimports
