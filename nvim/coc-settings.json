@@ -6,7 +6,8 @@
     "dlvr",
     "gorm",
     "moengage",
-    "transportify"
+    "transportify",
+    "twilio"
   ],
   "suggest.autoTrigger": "none"  
 }

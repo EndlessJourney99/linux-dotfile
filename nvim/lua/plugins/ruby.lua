@@ -6,6 +6,10 @@ return {
     "tpope/vim-rbenv",
   },
   {
-    "tpope/vim-rails"
-  }
+    "tpope/vim-rails",
+  },
+  {
+    "slim-template/vim-slim",
+    ft = "slim",
+  },
 }

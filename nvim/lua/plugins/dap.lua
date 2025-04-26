@@ -21,12 +21,6 @@ return {
       end,
     },
     {
-      "suketa/nvim-dap-ruby",
-      config = function()
-        require("dap-ruby").setup()
-      end,
-    },
-    {
       "theHamsta/nvim-dap-virtual-text",
       opts = {},
     },
@@ -45,25 +39,26 @@ return {
     { "jbyuki/one-small-step-for-vimkind", module = "osv" },
   },
   config = function()
-    require("dap").adapters = {
-      coreclr = {
-        type = "executable",
-        command = 'os.getenv("HOME")/.local/share/nvim/mason/bin/netcoredbg',
-        args = { "--interpreter=vscode" },
-      },
-    }
-    require("dap").configurations = {
-      cs = {
-        {
-          type = "coreclr",
-          name = "launch - netcoredbg",
-          request = "launch",
-          program = function()
-            return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
-          end,
-          stopOnEntry = true,
-        },
-      },
-    }
+    -- require("dap").adapters = {
+    --   coreclr = {
+    --     type = "executable",
+    --     command = '/home/endless_journey/.local/share/nvim/mason/bin/netcoredbg',
+    --     args = { "--interpreter=vscode" },
+    --   },
+    -- }
+    -- require("dap").configurations = {
+    --   cs = {
+    --     {
+    --       type = "coreclr",
+    --       name = "launch - netcoredbg",
+    --       request = "launch",
+    --       program = function()
+    --         return vim.fn.input("Path to dll", vim.fn.getcwd(), "file")
+    --       end,
+    --       cwd = "/",
+    --       stopOnEntry = true,
+    --     },
+    --   },
+    -- }
   end,
 }

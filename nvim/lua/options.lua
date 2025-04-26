@@ -25,8 +25,8 @@ o.smartcase = true
 o.mouse = "a"
 
 -- Numbers
-o.number = true
-o.numberwidth = 2
+o.number = false
+o.numberwidth = 1
 o.ruler = false
 
 -- disable nvim intro

@@ -1,5 +1,5 @@
 return {
-  "leoluz/nvim-dap-go",
+  "EndlessJourney99/nvim-dap-go-custom",
   config = function()
     require("dap-go").setup {
       dap_configurations = {

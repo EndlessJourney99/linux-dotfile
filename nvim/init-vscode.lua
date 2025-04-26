@@ -25,8 +25,8 @@ end
 
 mapMove("n", "j", "down")
 mapMove("n", "k", "up")
-mapMove("i", "h", "left")
-mapMove("i", "l", "right")
+mapMove("n", "h", "left")
+mapMove("n", "l", "right")
 mapMove("n", "<C-j>", "down", 5)
 mapMove("n", "<C-k>", "up", 5)
 
@@ -52,7 +52,7 @@ map({ "i" }, "<C-CR>", "<ESC>o", { noremap = true, silent = true })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], { noremap = true, silent = false })
 map("v", "/f", ":s/\\(.*\\)/", { noremap = true, silent = false })
-map("n", "<C-/>", "*", { noremap = true, silent = true })
+-- map("n", "<C-/>", "*", { noremap = true, silent = true })
 map("n", "<C-S-/>", function()
   vim.cmd "silent noh"
 end, { noremap = true, silent = true })
@@ -60,34 +60,17 @@ map("v", "/r", '"hy:%s@<C-r>h@@g<left><left>', { noremap = true, silent = false 
 map("n", "<C-A-n>", "<cmd>enew<CR>", { noremap = true, silent = true })
 
 -- Move code
-map({ "n" }, "<M-k>", "ddkkp", { noremap = true, silent = true })
-map({ "n" }, "<M-j>", "ddp", { noremap = true, silent = true })
-map("v", "<M-j>", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
-map("v", "<M-k>", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
-
 map("n", "<leader>Q", "<cmd>q!<cr>", { noremap = true, silent = true })
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 map("i", "<C-DEL>", "<ESC><right>cw", { noremap = true, silent = true })
 map({ "n", "v", "o" }, "<C-m>", "%", { noremap = true, silent = true })
-map({ "n", "t" }, "<M-`>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal toggleable horizontal term" })
 map({ "n", "v", "o" }, "x", "d", { noremap = true, silent = true })
 map({ "n", "v", "o" }, "X", "D", { noremap = true, silent = true })
 map({ "n", "v", "o" }, "xx", "dd", { noremap = true, silent = true })
 
 map("v", "=", function()
-  require("conform").format({ async = true, lsp_fallback = true }, function(err)
-    if not err then
-      local mode = vim.api.nvim_get_mode().mode
-      if vim.startswith(string.lower(mode), "v") then
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
-      end
-    else
-      print("Error formatting: " .. err)
-    end
-  end)
+  vscode.action "editor.action.formatSelection"
 end, { desc = "Format selection code" })
 
 -- Jump between markdown headers
@@ -179,19 +162,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 require "custom-func.quote-selector"
 
 -- vscode
-map("n", "<C-b>", function()
+map({ "n", "v" }, "<C-b>", function()
   vscode.action "workbench.files.action.showActiveFileInExplorer"
 end, { noremap = true, silent = true })
+
+-- map({ "n", "v" }, "y", function()
+--   vscode.action "editor.action.clipboardCopyAction"
+--   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, true, true), "v", true)
+-- end, { noremap = true, silent = true })
 
 map("n", "<C-,>", function()
   vscode.action "editor.action.showHover"
 end, { noremap = true, silent = true })
 
 map("n", "gr", function()
-  vscode.action "editor.action.goToReferences"
+  vscode.action "editor.action.referenceSearch.trigger"
 end, { noremap = true, silent = true })
 
-map("n", "gr", function()
+map("n", "gi", function()
   vscode.action "editor.action.goToImplementation"
 end, { noremap = true, silent = true })
 
@@ -207,11 +195,11 @@ map("n", "<C-e>", function()
   vscode.action "workbench.action.quickOpen"
 end, { noremap = true, silent = true })
 
-map("n", "<C-l>", function()
+map({ "n", "v" }, "<C-l>", function()
   vscode.action "workbench.action.nextEditor"
 end, { noremap = true, silent = true })
 
-map("n", "<C-h>", function()
+map({ "n", "v" }, "<C-h>", function()
   vscode.action "workbench.action.previousEditor"
 end, { noremap = true, silent = true })
 
@@ -226,6 +214,31 @@ end, { noremap = true, silent = true })
 map("n", "[d", function()
   vscode.action "editor.action.marker.prevInFiles"
 end, { noremap = true, silent = true })
+
+map({ "n", "v" }, "<M-j>", function()
+  vscode.action "editor.action.moveLinesDownAction"
+end, { noremap = true, silent = true })
+
+map({ "n", "v" }, "<M-k>", function()
+  vscode.action "editor.action.moveLinesUpAction"
+end, { noremap = true, silent = true })
+
+map({ "n", "v" }, "<leader>e", function()
+  vscode.action "settings.cycle.activityBar"
+end, { noremap = true, silent = true })
+
+-- map("n", "<leader>do", function()
+--   vscode.action "workbench.view.debug"
+--   vscode.action "workbench.debug.action.toggleRepl"
+-- end, { noremap = true, silent = true })
+
+-- map("n", "<M-k>", function()
+--   vscode.action "quickInput.next"
+-- end, { noremap = true, silent = true })
+--
+-- map("n", "<M-j>", function()
+--   vscode.action "quickInput.previous"
+-- end, { noremap = true, silent = true })
 -- Plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -243,3 +256,33 @@ require("lazy").setup({
   { import = "vscode_plugins" },
 }, lazy_config)
 
+
+
+-- options
+local opt = vim.opt
+local o = vim.o
+
+-------------------------------------- options ------------------------------------------
+o.laststatus = 3
+o.showmode = false
+
+o.clipboard = "unnamedplus"
+o.cursorline = true
+o.cursorlineopt = "number"
+
+opt.fillchars = { eob = " " }
+o.ignorecase = true
+o.smartcase = true
+o.mouse = "a"
+
+o.splitright = true
+o.timeoutlen = 200
+o.undofile = true
+o.updatetime = 250
+opt.whichwrap:append "<>[]hl"
+
+o.number = false
+o.numberwidth = 1
+o.ruler = false
+
+vim.cmd "set linebreak"

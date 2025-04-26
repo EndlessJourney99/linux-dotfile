@@ -133,6 +133,15 @@ return {
         },
       },
       extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+            winblend = 10,
+            width = 0.5,
+            prompt = " ",
+            results_height = 15,
+            previewer = true,
+          },
+        },
         undo = {
           use_delta = true,
           use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }

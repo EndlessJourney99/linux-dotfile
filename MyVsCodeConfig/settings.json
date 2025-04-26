@@ -64,7 +64,6 @@
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"files.autoSave": "afterDelay",
 	"[csharp]": {
 		"editor.defaultFormatter": "ms-dotnettools.csharp"
 	},
@@ -172,21 +171,17 @@
 	"editor.lineHeight": 24,
 
 	"editor.cursorStyle": "underline",
-	"editor.cursorWidth": 5,
+	"editor.cursorWidth": 3,
 	"editor.cursorBlinking": "smooth",
 	"editor.cursorSmoothCaretAnimation": "on",
 
 	"workbench.statusBar.visible": true,
-	"editor.minimap.enabled": false,
-	"breadcrumbs.enabled": true,
-	// "workbench.activityBar.location": "hidden",
 	"editor.guides.indentation": false,
 
 	"editor.scrollbar.vertical": "hidden",
 	"editor.scrollbar.horizontal": "hidden",
 
 	"editor.renderLineHighlight": "none",
-	"editor.glyphMargin": false,
 	"editor.lineNumbers": "on",
 	"editor.showFoldingControls": "never",
 	"editor.padding.bottom": 2,
@@ -197,24 +192,31 @@
 	"workbench.layoutControl.enabled": false,
 	"window.commandCenter": false,
 	"workbench.editor.editorActionsLocation": "hidden",
-	"workbench.editor.showTabs": "none",
+	"workbench.editor.showTabs": "multiple",
 	"editor.scrollBeyondLastLine": false,
-
-	"window.customTitleBarVisibility": "never",
 	"window.titleBarStyle": "custom",
 	"workbench.tree.indent": 10,
 	"workbench.colorTheme": "Catppuccin Frappé",
 	"workbench.iconTheme": "catppuccin-frappe",
-
 	"workbench.colorCustomizations": {},
+	
+	"editor.glyphMargin": true,
+	"workbench.activityBar.location": "hidden",
 	"workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
 	"settings.cycle": [
 		{
 			"id": "breakPoint",
 			"values": [{ "editor.glyphMargin": false }, { "editor.glyphMargin": true }]
+		},
+		{
+			"id": "activityBar",
+			"values": [
+				{ "workbench.activityBar.location": "hidden" },
+				{ "workbench.activityBar.location": "default" },
+			]
 		}
 	],
-	// NVIM VSCODE
+	// NVIM VSCODEs
 	"vscode-neovim.compositeKeys": {
 		"jj": {
 			"command": "vscode-neovim.lua",
@@ -225,4 +227,31 @@
 			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')", "code.action('workbench.action.files.save')"]]
 		}
 	},
+	"debug.focusWindowOnBreak": false,
+	"debug.internalConsoleOptions": "neverOpen",
+	"debug.openDebug": "neverOpen",
+	"accessibility.signals.onDebugBreak": {
+		"announcement": "off",
+		"sound": "off"
+	},
+	"accessibility.debugWatchVariableAnnouncements": false,
+	"accessibility.verbosity.debug": false,
+	"debug.showInStatusBar": "never",
+	"editor.minimap.enabled": false,
+	"yaml.schemas": {
+		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+	},
+	"atlascode.jira.enabled": true,
+	"atlascode.jira.jqlList": [
+		{
+			"id": "e9ed27d3-1aab-43da-a2b5-6847060bf682",
+			"enabled": true,
+			"name": "My inspirelabs Issues",
+			"query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+			"siteId": "ca98c89a-0f2f-48db-993b-2ec4c6b0f3c0",
+			"monitor": true
+		}
+	],
+	"atlascode.bitbucket.enabled": true,
+	"files.autoSave": "afterDelay",
 }

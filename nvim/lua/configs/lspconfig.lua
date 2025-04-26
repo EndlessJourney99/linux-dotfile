@@ -18,7 +18,7 @@ local on_attach = function(_, bufnr)
 
   map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
 
-  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
+  -- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
   map("n", "gr", vim.lsp.buf.references, opts "Show references")
 end
 

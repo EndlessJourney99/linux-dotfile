@@ -45,6 +45,9 @@ vim.schedule(function()
       max_type_length = nil, -- don't truncate type names
     },
   }
+
+  require("configs.dotnet-dap").register_net_dap()
+
   vim.o.ttyfast = true
   vim.o.lazyredraw = false
   vim.api.nvim_create_autocmd("BufEnter", {
