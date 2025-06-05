@@ -460,9 +460,9 @@
 		"when": "neovim.init && neovim.mode == 'cmdline'"
 	},
 	{
-		"key": "shift+-",
+		"key": "alt+-",
 		"command": "vsnetrw.open",
-		"when": "!inFilesPicker && !inQuickOpen && editorLangId != 'vsnetrw' && neovim.mode != 'insert'"
+		"when": "!inFilesPicker && !inQuickOpen && !inSearchEditor && editorLangId != 'vsnetrw' && neovim.mode != 'insert'"
 	},
 	{
 		"key": "-",
@@ -470,7 +470,7 @@
 		"when": "!activeEditor"
 	},
 	{
-		"key": "shift+-",
+		"key": "alt+-",
 		"command": "runCommands",
 		"args": {
 				"commands": [
@@ -558,5 +558,25 @@
 		"key": "ctrl+o",
 		"command": "-workbench.action.files.openFileFolder",
 		"when": "isMacNative && openFolderWorkspaceSupport"
+	},
+	{
+		"key": "f6",
+		"command": "testing.runAtCursor",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+; c",
+		"command": "-testing.runAtCursor",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "alt+`",
+		"command": "workbench.action.terminal.toggleTerminal",
+		"when": "terminal.active"
+	},
+	{
+		"key": "ctrl+`",
+		"command": "-workbench.action.terminal.toggleTerminal",
+		"when": "terminal.active"
 	}
 ]

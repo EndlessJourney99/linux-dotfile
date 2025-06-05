@@ -34,6 +34,7 @@ vim.schedule(function()
   vim.cmd "hi IlluminatedWordRead guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordWrite guibg=none gui=underline"
   vim.cmd "set linebreak"
+  vim.cmd "set noswapfile"
   vim.lsp.set_log_level "off"
 
   require("nvim-highlight-colors").setup {

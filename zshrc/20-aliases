@@ -76,6 +76,8 @@ alias lt='eza -a --tree --level=2 --icons'
 alias pac=' {(comm -23 <(yay -Qqe | sort) <({(pactree -u -d 1 base)&&(yay -Qqg base-devel);} | sort))&&(comm -23 <(yay -Qqtt | sort) <(yay -Qqt | sort));} | sort | uniq | fzf --multi --preview "yay -Si {1}" --preview-window=right:70%:wrap'
 
 alias reload-monitor='~/.config/zshrc/scripts/restart-monitor.sh'
+alias find-port="lsof -n -i | grep LISTEN | fzf > select | awk '{print \$2}'"
+
 # SSH
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 [ "$TERM" = "xterm-ghostty" ] && alias ssh="export TERM=xterm-256color ; ssh"

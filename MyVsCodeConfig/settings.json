@@ -32,6 +32,10 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.tabSize": 2
 	},
+	"[go-template]": {
+		"editor.defaultFormatter": "vscode.html-language-features",
+		"editor.tabSize": 2
+	},
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -59,7 +63,8 @@
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"files.associations": {
 		"*.json": "jsonc",
-		"*.mmd": "mermaid"
+		"*.mmd": "mermaid",
+		"*.gohtml": "go-template"
 	},
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -102,7 +107,7 @@
 	"go.lintTool": "golangci-lint",
 	"go.formatTool": "gofumpt",
 	"go.lintFlags": ["--fast"],
-	"github.copilot.editor.enableAutoCompletions": true,
+	"github.copilot.editor.enableAutoCompletions": false,
 	"go.toolsManagement.autoUpdate": true,
 	"gitlens.views.tags.branches.layout": "list",
 	"explorer.compactFolders": false,
@@ -157,7 +162,7 @@
 	"editor.hideCursorInOverviewRuler": true,
 	"editor.overviewRulerBorder": false,
 	"editor.scrollbar.verticalScrollbarSize": 0,
-	"editor.scrollbar.horizontalScrollbarSize": 2,
+	"editor.scrollbar.horizontalScrollbarSize": 1,
 	"editor.stickyScroll.enabled": false,
 	"workbench.tree.renderIndentGuides": "none",
 	"explorer.decorations.colors": false,
@@ -181,7 +186,7 @@
 	"editor.scrollbar.vertical": "hidden",
 	"editor.scrollbar.horizontal": "hidden",
 
-	"editor.renderLineHighlight": "none",
+	"editor.renderLineHighlight": "line",
 	"editor.lineNumbers": "on",
 	"editor.showFoldingControls": "never",
 	"editor.padding.bottom": 2,
@@ -198,10 +203,14 @@
 	"workbench.tree.indent": 10,
 	"workbench.colorTheme": "Catppuccin Frappé",
 	"workbench.iconTheme": "catppuccin-frappe",
-	"workbench.colorCustomizations": {},
-	
+	"workbench.colorCustomizations": {
+		"editorWarning.foreground": "#f2f255d8",
+		"list.warningForeground": "#f2f255d8",
+		"editorInfo.foreground": "#51eb9cae",
+	},
+
 	"editor.glyphMargin": true,
-	"workbench.activityBar.location": "hidden",
+	"workbench.activityBar.location": "default",
 	"workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
 	"settings.cycle": [
 		{
@@ -210,21 +219,18 @@
 		},
 		{
 			"id": "activityBar",
-			"values": [
-				{ "workbench.activityBar.location": "hidden" },
-				{ "workbench.activityBar.location": "default" },
-			]
+			"values": [{ "workbench.activityBar.location": "hidden" }, { "workbench.activityBar.location": "default" }]
 		}
 	],
 	// NVIM VSCODEs
 	"vscode-neovim.compositeKeys": {
 		"jj": {
 			"command": "vscode-neovim.lua",
-			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')", "code.action('workbench.action.files.save')"]]
+			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]]
 		},
 		"jk": {
 			"command": "vscode-neovim.lua",
-			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')", "code.action('workbench.action.files.save')"]]
+			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]]
 		}
 	},
 	"debug.focusWindowOnBreak": false,
@@ -239,7 +245,7 @@
 	"debug.showInStatusBar": "never",
 	"editor.minimap.enabled": false,
 	"yaml.schemas": {
-		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
 	},
 	"atlascode.jira.enabled": true,
 	"atlascode.jira.jqlList": [
@@ -253,5 +259,6 @@
 		}
 	],
 	"atlascode.bitbucket.enabled": true,
-	"files.autoSave": "afterDelay",
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"files.autoSave": "afterDelay"
 }

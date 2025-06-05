@@ -41,12 +41,10 @@ map("i", "<C-k>", "<Up>", { desc = "move up" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
 -- add new map
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("i", "kk", "<ESC>")
+map("i", "jk", "<ESC>", { desc = "CMD enter command mode" })
 map({ "n" }, "<C-CR>", "o<ESC>", { noremap = true, silent = true })
 map({ "i" }, "<C-CR>", "<ESC>o", { noremap = true, silent = true })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
@@ -281,8 +279,8 @@ o.undofile = true
 o.updatetime = 250
 opt.whichwrap:append "<>[]hl"
 
-o.number = false
 o.numberwidth = 1
+o.number = false
 o.ruler = false
 
 vim.cmd "set linebreak"
