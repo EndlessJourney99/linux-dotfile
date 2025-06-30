@@ -30,7 +30,7 @@ require "configs.nvim-tree-config"
 vim.schedule(function()
   require "mappings"
 
-  vim.cmd("colorscheme catppuccin-macchiato")
+  vim.cmd("colorscheme catppuccin")
   vim.cmd "hi IlluminatedWordText guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordRead guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordWrite guibg=none gui=underline"

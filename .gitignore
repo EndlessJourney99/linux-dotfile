@@ -20,6 +20,7 @@
 **/coc/list_history.dat
 **/Postman/*
 **/VirtualBox/*
+**/obsidian/*
 filezilla
 gopls/prompt
 fcitx/dbus
