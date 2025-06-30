@@ -19,7 +19,7 @@ require("lazy").setup({
 }, lazy_config)
 
 -- load theme
-dofile(vim.g.base46_cache .. "defaults")
+-- dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 -- custom configuration
@@ -30,6 +30,7 @@ require "configs.nvim-tree-config"
 vim.schedule(function()
   require "mappings"
 
+  vim.cmd("colorscheme catppuccin-macchiato")
   vim.cmd "hi IlluminatedWordText guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordRead guibg=none gui=underline"
   vim.cmd "hi IlluminatedWordWrite guibg=none gui=underline"

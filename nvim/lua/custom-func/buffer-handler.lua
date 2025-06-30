@@ -26,10 +26,12 @@ end
 local function jump_back_old_buffer_from_cursor()
   local last_buffer = vim.fn.bufnr "#"
   local current_buffer = vim.fn.bufnr "%"
-  local last_window = vim.fn.bufwinnr(last_buffer)
-  local current_window = vim.fn.bufwinnr(current_buffer)
+  local last_window = vim.fn.bufwinid(last_buffer)
 
-  if current_window ~= last_window then
+  -- local current_window = vim.fn.bufwinid(current_buffer)
+  -- print("is current window valid: ", vim.api.nvim_buf_is_loaded(current_buffer))
+  -- print("is last window valid: ", vim.api.nvim_buf_is_loaded(last_buffer))
+  if vim.api.nvim_buf_is_loaded(last_buffer) == false then
     vim.cmd "bp"
     return
   end

@@ -190,5 +190,7 @@ return {
     require("telescope").load_extension "noice"
 
     require("telescope").load_extension "git_file_history"
+
+    require("telescope").load_extension "csharpls_definition"
   end,
 }

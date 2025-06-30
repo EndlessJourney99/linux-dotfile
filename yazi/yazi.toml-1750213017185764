@@ -1,4 +1,4 @@
-[mgr]
+[manager]
 show_hidden = true
 sort_by = "size"
 ratio = [1, 4, 3]

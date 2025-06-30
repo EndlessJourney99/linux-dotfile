@@ -95,9 +95,8 @@
 	"markdown.preview.scrollEditorWithPreview": false,
 	"markdown.preview.scrollPreviewWithEditor": false,
 	"markdown.preview.markEditorSelection": false,
-	"mermaid-editor.generate.type": "jpg",
 	"mermaid-editor.generate.quality": 10000,
-	"mermaid-editor.generate.scale": 20,
+	"mermaid-editor.generate.scale": 30,
 	"[sql]": {
 		"editor.defaultFormatter": "adpyke.vscode-sql-formatter"
 	},
@@ -187,19 +186,16 @@
 	"editor.scrollbar.horizontal": "hidden",
 
 	"editor.renderLineHighlight": "line",
-	"editor.lineNumbers": "on",
+	"editor.lineNumbers": "off",
 	"editor.showFoldingControls": "never",
 	"editor.padding.bottom": 2,
 	"editor.padding.top": 2,
 
 	"window.title": " ",
 	"window.density.editorTabHeight": "compact",
-	"workbench.layoutControl.enabled": false,
 	"window.commandCenter": false,
 	"workbench.editor.editorActionsLocation": "hidden",
-	"workbench.editor.showTabs": "multiple",
 	"editor.scrollBeyondLastLine": false,
-	"window.titleBarStyle": "custom",
 	"workbench.tree.indent": 10,
 	"workbench.colorTheme": "Catppuccin Frappé",
 	"workbench.iconTheme": "catppuccin-frappe",
@@ -210,7 +206,7 @@
 	},
 
 	"editor.glyphMargin": true,
-	"workbench.activityBar.location": "default",
+	"workbench.activityBar.location": "hidden",
 	"workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
 	"settings.cycle": [
 		{
@@ -243,7 +239,6 @@
 	"accessibility.debugWatchVariableAnnouncements": false,
 	"accessibility.verbosity.debug": false,
 	"debug.showInStatusBar": "never",
-	"editor.minimap.enabled": false,
 	"yaml.schemas": {
 		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
 	},
@@ -260,5 +255,13 @@
 	],
 	"atlascode.bitbucket.enabled": true,
 	"github.copilot.nextEditSuggestions.enabled": true,
-	"files.autoSave": "afterDelay"
+	"files.autoSave": "afterDelay",
+	"editor.minimap.enabled": false,
+	"zenMode.centerLayout": false,
+	"chat.commandCenter.enabled": false,
+	"workbench.editor.wrapTabs": true,
+	"workbench.editor.pinnedTabSizing": "compact",
+	"workbench.editor.limit.enabled": true,
+	"workbench.editor.limit.value": 5,
+	"workbench.editor.showTabs": "none"
 }
