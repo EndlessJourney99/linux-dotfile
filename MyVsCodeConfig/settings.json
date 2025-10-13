@@ -206,7 +206,7 @@
 	},
 
 	"editor.glyphMargin": true,
-	"workbench.activityBar.location": "hidden",
+	"workbench.activityBar.location": "default",
 	"workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
 	"settings.cycle": [
 		{
@@ -256,12 +256,12 @@
 	"atlascode.bitbucket.enabled": true,
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"files.autoSave": "afterDelay",
-	"editor.minimap.enabled": false,
 	"zenMode.centerLayout": false,
 	"chat.commandCenter.enabled": false,
 	"workbench.editor.wrapTabs": true,
 	"workbench.editor.pinnedTabSizing": "compact",
 	"workbench.editor.limit.enabled": true,
 	"workbench.editor.limit.value": 5,
-	"workbench.editor.showTabs": "none"
+	"workbench.editor.showTabs": "none",
+	"workbench.secondarySideBar.defaultVisibility": "hidden"
 }

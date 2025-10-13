@@ -84,7 +84,7 @@ local defaults = function()
   dofile(vim.g.base46_cache .. "lsp")
   require("nvchad.lsp").diagnostic_config()
 
-  require("lspconfig").lua_ls.setup {
+  vim.lsp.config("lua_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     on_init = on_init,
@@ -107,34 +107,44 @@ local defaults = function()
         },
       },
     },
-  }
+  })
+  vim.lsp.enable("lua_ls")
 end
 
 -- load defaults i.e lua_lsp
 defaults()
 
-local lspconfig = require "lspconfig"
+-- local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers = { "ts_ls", "cssls", "gopls" }
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-    settings = {
-      onIgnoredFiles = "off",
-    },
-  }
+-- Define shared config items
+local common = {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    onIgnoredFiles = "off",
+  },
+}
+
+-- Register each server’s config
+for _, srv in ipairs(servers) do
+  vim.lsp.config(srv, common)
 end
 
-local config = {
+-- Now enable them
+vim.lsp.enable(servers)
+
+-- For servers needing custom config
+local custom = {
   cmd = { "csharp-ls" },
   on_attach = on_attach,
   capabilities = capabilities,
-  -- rest of your settings
+  -- add more server-specific fields: filetypes, root_dir, settings, etc.
 }
-lspconfig.csharp_ls.setup(config)
+vim.lsp.config("csharp_ls", custom)
+vim.lsp.enable "csharp_ls"
+
 require("csharpls_extended").buf_read_cmd_bind()

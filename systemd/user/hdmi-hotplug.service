@@ -1,0 +1,11 @@
+[Unit]
+Description=Handle HDMI hotplug for %I
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/endless_journey/.config/ml4w/scripts/hdmi-hotplug.sh
+
+[Install]
+WantedBy=default.target
+
