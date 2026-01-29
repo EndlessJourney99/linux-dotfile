@@ -37,6 +37,7 @@ return {
         zsh = { "shfmt", "shellcheck" },
         sql = { "custom_sql_formatter" },
         cs = { "ast_grep" },
+        tf = { "terraform_fmt" }
       },
     }
   end,

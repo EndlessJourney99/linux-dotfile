@@ -600,5 +600,15 @@
 		"key": "ctrl+shift+e",
 		"command": "-workbench.view.explorer",
 		"when": "viewContainer.workbench.view.explorer.enabled"
+	},
+	{
+		"key": "enter",
+		"command": "-python.execInInteractiveWindowEnter",
+		"when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !inlineChatFocused && !notebookCellListFocused && activeEditor == 'workbench.editor.interactive'"
+	},
+	{
+		"key": "enter",
+		"command": "-python.execInREPLEnter",
+		"when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !inlineChatFocused && !notebookCellListFocused && activeEditor == 'workbench.editor.repl'"
 	}
 ]

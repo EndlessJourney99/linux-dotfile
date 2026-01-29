@@ -11,6 +11,8 @@ text/plain=org.gnome.TextEditor.desktop
 image/png=qimgv.desktop
 application/pdf=google-chrome.desktop
 image/jpeg=qimgv.desktop
+image/svg+xml=google-chrome.desktop
+x-scheme-handler/msteams=teams.desktop
 
 [Added Associations]
 text/x-log=code.desktop;
@@ -18,3 +20,4 @@ text/plain=org.gnome.TextEditor.desktop;
 image/png=qimgv.desktop;
 application/pdf=google-chrome.desktop;
 image/jpeg=qimgv.desktop;
+image/svg+xml=google-chrome.desktop;

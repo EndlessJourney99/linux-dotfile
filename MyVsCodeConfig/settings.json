@@ -138,7 +138,8 @@
 		"jupyter-notebook": "left"
 	},
 	"[python]": {
-		"editor.formatOnType": true
+		"editor.formatOnType": true,
+		"editor.defaultFormatter": "ms-python.black-formatter"
 	},
 	"editor.tabCompletion": "on",
 	"explorer.openEditors.visible": 1,
@@ -178,8 +179,6 @@
 	"editor.cursorWidth": 3,
 	"editor.cursorBlinking": "smooth",
 	"editor.cursorSmoothCaretAnimation": "on",
-
-	"workbench.statusBar.visible": true,
 	"editor.guides.indentation": false,
 
 	"editor.scrollbar.vertical": "hidden",
@@ -242,18 +241,6 @@
 	"yaml.schemas": {
 		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
 	},
-	"atlascode.jira.enabled": true,
-	"atlascode.jira.jqlList": [
-		{
-			"id": "e9ed27d3-1aab-43da-a2b5-6847060bf682",
-			"enabled": true,
-			"name": "My inspirelabs Issues",
-			"query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
-			"siteId": "ca98c89a-0f2f-48db-993b-2ec4c6b0f3c0",
-			"monitor": true
-		}
-	],
-	"atlascode.bitbucket.enabled": true,
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"files.autoSave": "afterDelay",
 	"zenMode.centerLayout": false,
@@ -262,6 +249,26 @@
 	"workbench.editor.pinnedTabSizing": "compact",
 	"workbench.editor.limit.enabled": true,
 	"workbench.editor.limit.value": 5,
-	"workbench.editor.showTabs": "none",
-	"workbench.secondarySideBar.defaultVisibility": "hidden"
+	"workbench.secondarySideBar.defaultVisibility": "hidden",
+	"[nix]": {
+		"editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+	},
+	"nix.enableLanguageServer": true,
+	 "nix.serverSettings": {
+    // check https://github.com/oxalica/nil/blob/main/docs/configuration.md for all options available
+    "nil": {
+      // "diagnostics": {
+      //  "ignored": ["unused_binding", "unused_with"],
+      // },
+      "formatting": {
+        "command": ["nixfmt"],
+      },
+    },
+	},
+	"remote.SSH.connectTimeout": 150,
+	"black-formatter.args": [
+		"--line-length",
+		"79"
+	],
+	"files.trimFinalNewlines": true
 }

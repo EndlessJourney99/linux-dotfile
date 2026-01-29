@@ -117,7 +117,7 @@ defaults()
 -- local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "ts_ls", "cssls", "gopls" }
+local servers = { "ts_ls", "cssls", "gopls", "terraform-ls" }
 
 -- Define shared config items
 local common = {
