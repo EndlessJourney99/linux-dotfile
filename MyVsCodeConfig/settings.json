@@ -270,5 +270,6 @@
 		"--line-length",
 		"79"
 	],
-	"files.trimFinalNewlines": true
+	"files.trimFinalNewlines": true,
+	"editor.minimap.enabled": false
 }

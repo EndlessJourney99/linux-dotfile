@@ -17,3 +17,8 @@ export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target,obj,bin
   --preview 'bat -n --color=always {}'
   --bind 'enter:execute(nvim {})+abort'"
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
