@@ -581,7 +581,7 @@
 	},
 	{
 		"key": "ctrl+f",
-		"command": "better-search.findInProject",
+		"command": "vsc-telescope.searchContent",
 		"when": "editorTextFocus && neovim.mode != insert"
 	},
 	{

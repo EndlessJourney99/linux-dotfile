@@ -46,7 +46,6 @@ return {
         "prettierd",
         "beautysh",
         "buf",
-        "rustfmt",
         "taplo",
         "shellcheck",
         "gopls",

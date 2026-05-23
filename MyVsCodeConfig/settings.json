@@ -22,25 +22,25 @@
 		"Subiz",
 		"Swal",
 		"tabindex",
-		"Zalo"
+		"Zalo",
 	],
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.tabSize": 2
+		"editor.tabSize": 2,
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.tabSize": 2
+		"editor.tabSize": 2,
 	},
 	"[go-template]": {
 		"editor.defaultFormatter": "vscode.html-language-features",
-		"editor.tabSize": 2
+		"editor.tabSize": 2,
 	},
 	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"[javascriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"html.format.wrapLineLength": 0,
 	"emmet.includeLanguages": {
@@ -50,13 +50,13 @@
 		"plaintext": "jade",
 		"blade": "html",
 		"vue": "html",
-		"react": "html"
+		"react": "html",
 	},
 	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"prettier.useTabs": true,
 	"prettier.printWidth": 150,
@@ -64,20 +64,20 @@
 	"files.associations": {
 		"*.json": "jsonc",
 		"*.mmd": "mermaid",
-		"*.gohtml": "go-template"
+		"*.gohtml": "go-template",
 	},
 	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"[csharp]": {
-		"editor.defaultFormatter": "ms-dotnettools.csharp"
+		"editor.defaultFormatter": "ms-dotnettools.csharp",
 	},
 	"editor.minimap.maxColumn": 100,
 	"[aspnetcorerazor]": {
-		"editor.defaultFormatter": "ms-dotnettools.csharp"
+		"editor.defaultFormatter": "ms-dotnettools.csharp",
 	},
 	"remote.SSH.remotePlatform": {
-		"140.83.60.110": "linux"
+		"140.83.60.110": "linux",
 	},
 	"explorer.autoReveal": false,
 	"git.confirmSync": false,
@@ -87,7 +87,7 @@
 		"*": true,
 		"plaintext": true,
 		"markdown": true,
-		"scminput": false
+		"scminput": false,
 	},
 	"testing.followRunningTest": false,
 	"remote.autoForwardPortsSource": "hybrid",
@@ -98,10 +98,10 @@
 	"mermaid-editor.generate.quality": 10000,
 	"mermaid-editor.generate.scale": 30,
 	"[sql]": {
-		"editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+		"editor.defaultFormatter": "adpyke.vscode-sql-formatter",
 	},
 	"[go]": {
-		"editor.defaultFormatter": "golang.go"
+		"editor.defaultFormatter": "golang.go",
 	},
 	"go.lintTool": "golangci-lint",
 	"go.formatTool": "gofumpt",
@@ -119,7 +119,7 @@
 	"terminal.integrated.smoothScrolling": true,
 	"git.openRepositoryInParentFolders": "never",
 	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1
+		"asvetliakov.vscode-neovim": 1,
 	},
 	"vscode-neovim.neovimInitVimPaths.linux": "/home/endless_journey/.config/nvim/init-vscode.lua",
 
@@ -128,18 +128,18 @@
 	"gitlens.advanced.messages": {
 		"suppressGitDisabledWarning": true,
 		"suppressGitMissingWarning": true,
-		"suppressLineUncommittedWarning": true
+		"suppressLineUncommittedWarning": true,
 	},
 	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter-notebook"
+		"*.ipynb": "jupyter-notebook",
 	},
 	"notebook.cellToolbarLocation": {
 		"default": "right",
-		"jupyter-notebook": "left"
+		"jupyter-notebook": "left",
 	},
 	"[python]": {
 		"editor.formatOnType": true,
-		"editor.defaultFormatter": "ms-python.black-formatter"
+		"editor.defaultFormatter": "ms-python.black-formatter",
 	},
 	"editor.tabCompletion": "on",
 	"explorer.openEditors.visible": 1,
@@ -210,36 +210,36 @@
 	"settings.cycle": [
 		{
 			"id": "breakPoint",
-			"values": [{ "editor.glyphMargin": false }, { "editor.glyphMargin": true }]
+			"values": [{ "editor.glyphMargin": false }, { "editor.glyphMargin": true }],
 		},
 		{
 			"id": "activityBar",
-			"values": [{ "workbench.activityBar.location": "hidden" }, { "workbench.activityBar.location": "default" }]
-		}
+			"values": [{ "workbench.activityBar.location": "hidden" }, { "workbench.activityBar.location": "default" }],
+		},
 	],
 	// NVIM VSCODEs
 	"vscode-neovim.compositeKeys": {
 		"jj": {
 			"command": "vscode-neovim.lua",
-			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]]
+			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]],
 		},
 		"jk": {
 			"command": "vscode-neovim.lua",
-			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]]
-		}
+			"args": [["local code = require('vscode')", "code.action('vscode-neovim.escape')"]],
+		},
 	},
 	"debug.focusWindowOnBreak": false,
 	"debug.internalConsoleOptions": "neverOpen",
 	"debug.openDebug": "neverOpen",
 	"accessibility.signals.onDebugBreak": {
 		"announcement": "off",
-		"sound": "off"
+		"sound": "off",
 	},
 	"accessibility.debugWatchVariableAnnouncements": false,
 	"accessibility.verbosity.debug": false,
 	"debug.showInStatusBar": "never",
 	"yaml.schemas": {
-		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+		"file:///home/endless_journey/.vscode/extensions/atlassian.atlascode-3.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
 	},
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"files.autoSave": "afterDelay",
@@ -251,25 +251,25 @@
 	"workbench.editor.limit.value": 5,
 	"workbench.secondarySideBar.defaultVisibility": "hidden",
 	"[nix]": {
-		"editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+		"editor.defaultFormatter": "brettm12345.nixfmt-vscode",
 	},
 	"nix.enableLanguageServer": true,
-	 "nix.serverSettings": {
-    // check https://github.com/oxalica/nil/blob/main/docs/configuration.md for all options available
-    "nil": {
-      // "diagnostics": {
-      //  "ignored": ["unused_binding", "unused_with"],
-      // },
-      "formatting": {
-        "command": ["nixfmt"],
-      },
-    },
+	"nix.serverSettings": {
+		// check https://github.com/oxalica/nil/blob/main/docs/configuration.md for all options available
+		"nil": {
+			// "diagnostics": {
+			//  "ignored": ["unused_binding", "unused_with"],
+			// },
+			"formatting": {
+				"command": ["nixfmt"],
+			},
+		},
 	},
 	"remote.SSH.connectTimeout": 150,
-	"black-formatter.args": [
-		"--line-length",
-		"79"
-	],
+	"black-formatter.args": ["--line-length", "79"],
 	"files.trimFinalNewlines": true,
-	"editor.minimap.enabled": false
+	"debug.javascript.autoAttachFilter": "disabled",
+	"workbench.view.showQuietly": {
+		"workbench.panel.output": true,
+	},
 }

@@ -27,7 +27,6 @@ return {
         markdown = { "prettierd", "prettier", stop_after_first = true },
         bash = { "beautysh" },
         proto = { "buf" },
-        rust = { "rustfmt" },
         yaml = { "yamlfix" },
         toml = { "taplo" },
         css = { "prettierd", "prettier", stop_after_first = true },
