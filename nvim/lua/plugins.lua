@@ -310,7 +310,6 @@ return {
     lazy = true,
     event = "VeryLazy",
   },
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "catppuccin/nvim",
