@@ -4,13 +4,13 @@ local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gr", function()
-    vim.lsp.buf.references()
+    require("snacks").picker.lsp_references()
   end, vim.tbl_deep_extend("force", opts, { desc = "LSP Goto Reference" }))
   vim.keymap.set("n", "gd", function()
-    vim.lsp.buf.definition()
+    require("snacks").picker.lsp_definitions()
   end, vim.tbl_deep_extend("force", opts, { desc = "LSP Goto Definition" }))
   vim.keymap.set("n", "gi", function()
-    vim.lsp.buf.implementation()
+    require("snacks").picker.lsp_implementations()
   end, vim.tbl_deep_extend("force", opts, { desc = "LSP Goto Definition" }))
   vim.keymap.set("n", "<leader>vws", function()
     vim.lsp.buf.workspace_symbol()
@@ -108,7 +108,7 @@ local defaults = function()
       },
     },
   })
-  vim.lsp.enable("lua_ls")
+  vim.lsp.enable "lua_ls"
 end
 
 -- load defaults i.e lua_lsp
