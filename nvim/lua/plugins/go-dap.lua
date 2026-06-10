@@ -10,7 +10,8 @@ return {
         --   request = require("dap-go").debug_test,
         --   program = "${file}",
         -- },
-      },
+      }
+
     }
   end,
 }
